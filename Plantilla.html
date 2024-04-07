@@ -53,7 +53,7 @@
             flex-wrap: wrap;
             justify-content: center;
             padding: 5px;
-            margin-top: 100px; /* Ajuste para dejar espacio debajo del header y el nav */
+            margin-top: 100px; 
         }
         .graph {
             margin: 10px;
@@ -84,16 +84,16 @@
         img.boton-login {
             height: 40px;
             width: auto;
-            margin-left: 1050px; /* Cambiado para ajustar la posición */
+            margin-left: 1050px; 
             position: absolute; 
             top: 30px;
             cursor: pointer;
         }
         img#login-button {
-            display: block; /* Añadido para mostrar el botón de inicio por defecto */
+            display: block; 
         }
         img#selected-login {
-            display: none; /* Añadido para ocultar el botón de inicio seleccionado por defecto */
+            display: none; 
         }
     </style>
     
@@ -124,11 +124,9 @@
 
     <script>
         function selectNavItem(element) {
-            // Eliminar la clase 'active' de todos los elementos de navegación
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
-            // Agregar la clase 'active' solo al elemento clicado
             element.classList.add('active');
         }
 
