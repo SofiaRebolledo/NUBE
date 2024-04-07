@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .top-bar {
+            background-color: #3766CB;
+            height: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        header {
+            background-color: #F32E61;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            position: fixed;
+            top: 20px;
+            z-index: 999;
+            padding: 0 20px;
+        }
+        nav {
+            background: linear-gradient(to bottom, #5b5a5a, white);
+            color: black;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            position: fixed;
+        }
+        nav div {
+            cursor: pointer;
+            padding: 10px;
+            font-weight: bold;
+        }
+        nav div.active {
+            background-color: white;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 5px;
+            margin-top: 100px; /* Ajuste para dejar espacio debajo del header y el nav */
+        }
+        .graph {
+            margin: 10px;
+            text-align: center;
+        }
+        footer {
+            background-color: #3766CB;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+        img.logo-gov2 {
+            height: 30px;
+            width: auto;
+            margin-right: 10px;
+        }
+        img.logo-gov {
+            height: 20px;
+            width: auto;
+            margin-left: 10px;
+        }
+        img.boton-login {
+            height: 40px;
+            width: auto;
+            margin-left: 1050px; /* Cambiado para ajustar la posición */
+            position: absolute; 
+            top: 30px;
+            cursor: pointer;
+        }
+        img#login-button {
+            display: block; /* Añadido para mostrar el botón de inicio por defecto */
+        }
+        img#selected-login {
+            display: none; /* Añadido para ocultar el botón de inicio seleccionado por defecto */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="top-bar">
+        <img src="IMAGENES/gov.png" alt="GOV.CO" class="logo-gov">
+    </div>
+    <header>
+        <div class="login-container">
+            <img src="IMAGENES/logo_crc.png" alt="Logo CRC">
+            <img class="boton-login" id="login-button" src="IMAGENES/boton_login.png" alt="Botón Login" onclick="toggleLogin()">
+            <img class="boton-login" id="selected-login" src="IMAGENES/login_seleccionado.png" alt="Botón Login Seleccionado" onclick="toggleLogin()" style="display: none;">
+        </div>
+    </header>
+    <main>
+        <nav>
+            <div class="nav-item active" onclick="selectNavItem(this)">Inicio</div>
+            <div class="nav-item" onclick="selectNavItem(this)">Ver Histórico</div>
+            <div class="nav-item" onclick="selectNavItem(this)">Realizar Tendencia</div>
+            <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
+        </nav>
+        <!-- Aquí va el contenido de la página -->
+    </main>
+    <footer>
+        <img src="IMAGENES/gov2.png" alt="GOV2" class="logo-gov2">
+    </footer>
+
+    <script>
+        function selectNavItem(element) {
+            // Eliminar la clase 'active' de todos los elementos de navegación
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Agregar la clase 'active' solo al elemento clicado
+            element.classList.add('active');
+        }
+
+        function toggleLogin() {
+            var loginButton = document.getElementById('login-button');
+            var selectedLogin = document.getElementById('selected-login');
+
+            if (loginButton.style.display === 'none') {
+                loginButton.style.display = 'block';
+                selectedLogin.style.display = 'none';
+            } else {
+                loginButton.style.display = 'none';
+                selectedLogin.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
