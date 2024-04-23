@@ -8,4 +8,4 @@ def project(request, pk):
     return render(request, 'oooooooooo.html')
 
 def login(request):
-    return render(request,'registro.html')
+    return render(request,'login.html')
