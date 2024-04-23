@@ -165,7 +165,7 @@
         .titulo-registro {
             color: #F32E61;
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .iniciar-sesion {
@@ -178,6 +178,22 @@
             max-height: 80vh; /* Altura máxima del contenido */
             overflow-y: auto; /* Activar el scroll vertical cuando sea necesario */
         }
+
+        .boton-registro {
+        position: fixed;
+        bottom: 60px; /* Mover el botón hacia arriba */
+        right: 20px;
+        cursor: pointer;
+        transition: bottom 0.5s ease; /* Transición suave */
+        height: 50px;
+    }
+
+    .titulo-registro {
+        color: #F32E61;
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    }
     </style>
 </head>
 <body>
@@ -236,6 +252,11 @@
                 </form>
             </div>
         </div>
+
+        <a href="/login/">
+            <img src="{% static 'IMAGENES/registro.png' %}" alt="Registro" class="boton-registro">
+        </a>
+
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">

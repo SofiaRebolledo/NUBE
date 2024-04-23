@@ -12,3 +12,9 @@ def login(request):
 
 def registro(request):
     return render(request,'registro.html')
+
+def forgot_password(request):
+    return render(request,'forgot_password.html')
+
+def inicio_admin(request):
+    return render(request,'inicio_admin.html')
