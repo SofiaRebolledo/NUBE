@@ -18,3 +18,6 @@ def forgot_password(request):
 
 def inicio_admin(request):
     return render(request,'inicio_admin.html')
+
+def calendario(request):
+    return render(request,'calendario.html')
