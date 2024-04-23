@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,31 +83,47 @@
             margin-left: 10px;
         }
         img.boton-login {
-            height: 40px;
+            height: 40px; /* Aumentar altura de las imágenes */
             width: auto;
-            margin-left: 1050px; 
-            position: absolute; 
-            top: 30px;
+            margin-left: 10px;
+            margin-top: 20px; /* Bajar la posición de las imágenes */
             cursor: pointer;
         }
-        img#login-button {
-            display: block; 
+
+        /* Agregar estilos para el formulario de login */
+        .login-form {
+            text-align: center;
+            margin-top: 50px;
         }
-        img#selected-login {
-            display: none; 
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            width: 250px;
+            display: block;
+            margin: auto;
+        }
+        .login-form input[type="text"] {
+            margin-bottom: 10px; /* Ajusta el margen inferior del campo de entrada de texto */
+        }
+        .login-form input[type="submit"] {
+            display: none; /* Ocultar el botón Log in */
+        }
+        .login-form a {
+            text-decoration: none;
+            color: #3766CB;
         }
     </style>
-    
 </head>
 <body>
     <div class="top-bar">
-        <img src="IMAGENES/gov.png" alt="GOV.CO" class="logo-gov">
+        <img src="{% static 'IMAGENES/gov.png' %}" alt="GOV.CO" class="logo-gov">
     </div>
     <header>
         <div class="login-container">
-            <img src="IMAGENES/logo_crc.png" alt="Logo CRC">
-            <img class="boton-login" id="login-button" src="IMAGENES/boton_login.png" alt="Botón Login" onclick="toggleLogin()">
-            <img class="boton-login" id="selected-login" src="IMAGENES/login_seleccionado.png" alt="Botón Login Seleccionado" onclick="toggleLogin()" style="display: none;">
+            <img src="{% static 'IMAGENES/logo_crc.png' %}" alt="Logo CRC">
         </div>
     </header>
     <main>
@@ -116,10 +133,21 @@
             <div class="nav-item" onclick="selectNavItem(this)">Realizar Tendencia</div>
             <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
         </nav>
-        <!-- Aquí va el contenido de la página -->
+        <!-- Formulario de login -->
+        <div class="login-form">
+            <img src="{% static 'IMAGENES/user.png' %}" alt="User" style="width: 150px; height: 150px; margin-top: 30px;">
+            <form onsubmit="return false;"> <!-- Evitar el envío automático del formulario -->
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <a href="#" style="font-size: 12px; color: #ccc;">Forgot password?</a>
+                <br>
+                <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login">
+                <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login">
+            </form>
+        </div>
     </main>
     <footer>
-        <img src="IMAGENES/gov2.png" alt="GOV2" class="logo-gov2">
+        <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
     </footer>
 
     <script>
@@ -128,19 +156,6 @@
                 item.classList.remove('active');
             });
             element.classList.add('active');
-        }
-
-        function toggleLogin() {
-            var loginButton = document.getElementById('login-button');
-            var selectedLogin = document.getElementById('selected-login');
-
-            if (loginButton.style.display === 'none') {
-                loginButton.style.display = 'block';
-                selectedLogin.style.display = 'none';
-            } else {
-                loginButton.style.display = 'none';
-                selectedLogin.style.display = 'block';
-            }
         }
     </script>
 </body>
