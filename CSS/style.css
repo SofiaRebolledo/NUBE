@@ -1,0 +1,91 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.top-bar {
+    background-color: #3766CB;
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+header {
+    background-color: #F32E61;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 20px;
+    z-index: 999;
+    padding: 0 20px;
+}
+nav {
+    background: linear-gradient(to bottom, #5b5a5a, white);
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+}
+nav div {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+}
+nav div.active {
+    background-color: white;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    margin-top: 100px; 
+}
+.graph {
+    margin: 10px;
+    text-align: center;
+}
+footer {
+    background-color: #3766CB;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+img.logo-gov2 {
+    height: 30px;
+    width: auto;
+    margin-right: 10px;
+}
+img.logo-gov {
+    height: 20px;
+    width: auto;
+    margin-left: 10px;
+}
+img.boton-login {
+    height: 40px;
+    width: auto;
+    margin-left: 1050px; 
+    position: absolute; 
+    top: 30px;
+    cursor: pointer;
+}
+img#login-button {
+    display: block; 
+}
+img#selected-login {
+    display: none; 
+}
