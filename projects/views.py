@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-def projects(request):
+def inicio(request):
     return render(request, 'Plantilla.html')
-
-def project(request, pk):
-    return render(request, 'oooooooooo.html')
 
 def login(request):
     return render(request,'login.html')
@@ -18,3 +15,6 @@ def forgot_password(request):
 
 def inicio_admin(request):
     return render(request,'inicio_admin.html')
+
+def calendario(request):
+    return render(request,'calendario.html')
