@@ -96,20 +96,19 @@
         img#selected-login {
             display: none; 
         }
+        
         .titulo-registro {
             color: #F32E61;
             font-size: 24px;
             margin-bottom: 10px;
-            margin-top: 70px; /* Ajusta el margen superior según sea necesario */
-        }
-        .calendar-container {
-            text-align: center;
-            margin-top: 20px;
+            margin-top: 30px; /* Ajusta el margen superior según sea necesario */
         }
 
-        .calendar-container label {
-            display: block;
-            margin-bottom: 10px;
+        .calendar-container {
+            text-align: left; /* Alinea el texto del calendario a la izquierda */
+            position: absolute;
+            left: 20px; /* Ajusta la posición izquierda del calendario */
+            top: 200px; /* Ajusta la posición superior del calendario */
         }
 
         .startdate {
@@ -131,19 +130,10 @@
         </div>
     </header>
     <main>
-        <nav>
-            <div class="nav-item" onclick="selectNavItem(this)">Inicio</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Ver Histórico</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Realizar Tendencia</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
-        </nav>
-        
-        <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>Bienvenido a Historico</strong></div>
-
         <!-- Calendario -->
         <div class="calendar-container">
-            <label for="start">Selecciona una fecha:</label>
+            <label for="start"></label>
             <input class="startdate" type="date" id="start" name="trip-start" min="2020-01-01" />
         </div>
     </main>
