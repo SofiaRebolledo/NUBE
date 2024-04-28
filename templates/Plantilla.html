@@ -109,7 +109,7 @@
             <img class="boton-login" id="selected-login" src="{% static 'IMAGENES/login_seleccionado.png' %}" alt="Botón Login Seleccionado" onclick="toggleLogin()" style="display: none;">
         </div>
     </header>
-    <main>
+    <main style="margin-top: 100px;">
         <nav>
             <div class="nav-item" onclick="selectNavItem(this)">Inicio</div>
             <div class="nav-item" onclick="selectNavItem(this)">Ver Histórico</div>
@@ -117,8 +117,22 @@
             <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
         </nav>
         
-        <!-- Aquí va el contenido de la página -->
+        <div style="margin-top: 120px; display: flex; justify-content: space-between;">
+            <div>
+                <a href="https://www.crcom.gov.co/es/micrositios/yo-mido-la-calidad" style="margin-bottom: 20px;">
+                    <img src="{% static 'IMAGENES/noticia1.jpg' %}" alt="Noticia 1" style="width: 350px; height: 200px;">
+                </a>
+                <a href="https://www.crcom.gov.co/es/noticias/comunicado-prensa/rechazos-solicitudes-cambio-operador-se-redujeron-78-en-segundo-semestre" style="margin-bottom: 20px;">
+                    <img src="{% static 'IMAGENES/noticia2.jpg' %}" alt="Noticia 2" style="width: 350px; height: 200px;">
+                </a>
+                <a href="https://www.crcom.gov.co/es/noticias/comunicado-prensa/con-nuevas-medidas-crc-contribuye-al-cierre-brecha-digital-en-colombia">
+                    <img src="{% static 'IMAGENES/noticia3.jpg' %}" alt="Noticia 3" style="width: 350px; height: 200px;">
+                </a>
+            </div>
+        </div>
     </main>
+    
+      
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
     </footer>
