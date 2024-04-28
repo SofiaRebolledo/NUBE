@@ -131,6 +131,7 @@
         <div class="rectangulo">
             <!-- Nueva imagen seleccionararchivo.png -->
             <img src="{% static 'IMAGENES/seleccionararchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
+            <img src="{% static 'IMAGENES/subirarchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo" style="left: 60%;">
         </div>
         <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>soy el adminnn</strong></div>
@@ -139,6 +140,7 @@
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
     </footer>
     <script>
+        // Función para cambiar entre los botones de login
         function toggleLogin() {
             var loginButton = document.getElementById('login-button');
             var selectedLogin = document.getElementById('selected-login');
@@ -149,13 +151,17 @@
             } else {
                 loginButton.style.display = 'none';
                 selectedLogin.style.display = 'block';
-                redirectToLogin(); 
+                redirectToLogin(); // Redirigir al hacer clic en el botón de login
             }
         }
     
+        // Función para redireccionar a la página de login
         function redirectToLogin() {
-            window.location.href = '/login/';
+            window.location.href = '/login/'; // Redirigir a la página de login
         }
+
+        // Agregar evento de clic al botón de login
+        document.getElementById('login-button').addEventListener('click', toggleLogin);
     </script>
 </body>
 </html>
