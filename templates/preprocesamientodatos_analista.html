@@ -122,6 +122,35 @@
             opacity: 0;
             cursor: pointer; /* Cambia el cursor al pasar sobre el área del input */
         }
+
+        /* Estilo para los nuevos botones */
+        .boton-preprocesar,
+        .boton-descargar {
+            position: fixed;
+            width: 150px; /* Ancho reducido */
+            height: auto; /* Altura automática para mantener la proporción */
+            z-index: 1000; /* Asegura que estén sobre otros elementos */
+            cursor: pointer;
+        }
+
+        /* Estilo específico para el botón de preprocesar */
+        .boton-preprocesar {
+            right: 190px;
+            top: 460px;
+        }
+
+        /* Estilo específico para el botón de descargar */
+        .boton-descargar {
+            right: 20px;
+            top: 460px;
+        }
+
+        /* Estilo para las imágenes de los botones */
+        .boton-preprocesar img,
+        .boton-descargar img {
+            width: 100%; /* Ancho al 100% del contenedor */
+            height: auto; /* Altura automática para mantener la proporción */
+        }
     </style>
 </head>
 <body>
@@ -154,6 +183,16 @@
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
     </footer>
+    <!-- Botón para preprocesar -->
+    <div class="boton-preprocesar">
+        <img src="{% static 'IMAGENES/botonpreprocesar.png' %}" alt="Botón Preprocesar">
+    </div>
+
+    <!-- Botón para descargar -->
+    <a href="/analista/" class="boton-descargar">
+        <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Botón Descargar">
+    </a>
+
     <script>
         // Función para cambiar entre los botones de login
         function toggleLogin() {
