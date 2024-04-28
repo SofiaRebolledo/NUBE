@@ -14,4 +14,5 @@ urlpatterns = [
     path('resultadosindices/', views.resultadosindices, name="resultadosindices"),
     path('roladmin/', views.roladmin, name="roladmin"),
     path('analista/', views.analista, name="analista"),
+    path('crearusuario_admin/', views.crearusuario_admin, name="crearusuario_admin"),
 ]

@@ -134,7 +134,7 @@
         <!-- Rectángulo para el anuncio -->
         <div class="rectangulo">
             <!-- Imágenes dentro del rectángulo -->
-            <img src="{% static 'IMAGENES/crearusuario.png' %}" alt="Crear Usuario" class="crearusuario">
+            <img src="{% static 'IMAGENES/crearusuario.png' %}" alt="Crear Usuario" class="crearusuario" onclick="redirectToCrearUsuario()">
             <img src="{% static 'IMAGENES/basedatos.png' %}" alt="Base de Datos" class="basededatos">
         </div>
         <!-- Aquí va el contenido de la página -->
@@ -160,6 +160,10 @@
     
         function redirectToLogin() {
             window.location.href = '/login/';
+        }
+
+        function redirectToCrearUsuario() {
+            window.location.href = '/crearusuario_admin/';
         }
     </script>
 </body>

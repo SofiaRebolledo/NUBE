@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mockup</title>
     <style>
+        /* Estilos previos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
+
         .top-bar {
             background-color: #3766CB;
             height: 20px;
@@ -19,6 +21,7 @@
             top: 0;
             z-index: 1000;
         }
+
         header {
             background-color: #F32E61;
             color: white;
@@ -32,6 +35,7 @@
             z-index: 999;
             padding: 0 20px;
         }
+
         nav {
             background: linear-gradient(to bottom, #5b5a5a, white);
             color: black;
@@ -41,14 +45,17 @@
             width: 100%;
             position: fixed;
         }
+
         nav div {
             cursor: pointer;
             padding: 10px;
             font-weight: bold;
         }
+
         nav div.active {
             background-color: white;
         }
+
         main {
             display: flex;
             flex-wrap: wrap;
@@ -56,10 +63,12 @@
             padding: 5px;
             margin-top: 100px; 
         }
+
         .graph {
             margin: 10px;
             text-align: center;
         }
+
         footer {
             background-color: #3766CB;
             color: white;
@@ -72,16 +81,19 @@
             position: fixed;
             bottom: 0;
         }
+
         img.logo-gov2 {
             height: 30px;
             width: auto;
             margin-right: 10px;
         }
+
         img.logo-gov {
             height: 20px;
             width: auto;
             margin-left: 10px;
         }
+
         img.boton-login {
             height: 40px; /* Aumentar altura de las imágenes */
             width: auto;
@@ -128,10 +140,10 @@
     </header>
     <main>
         <nav>
-            <div class="nav-item active" onclick="selectNavItem(this)">Inicio</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Ver Histórico</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Realizar Tendencia</div>
-            <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
+            <div class="nav-item active" onclick="redirectTo('/inicio/')">Inicio</div>
+            <div class="nav-item" onclick="redirectTo('/historico/')">Ver Histórico</div>
+            <div class="nav-item" onclick="redirectTo('/tendencia/')">Realizar Tendencia</div>
+            <div class="nav-item" onclick="redirectTo('/resultadosindices/')">Resultados índices</div>
         </nav>
         <!-- Formulario de login -->
         <div class="login-form">
@@ -141,7 +153,7 @@
                 <input type="password" placeholder="Password" id="password">
                 <a href="/forgot_password" style="font-size: 12px; color: #ccc;">Forgot password?</a>
                 <br>
-                <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login">
+                <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login" onclick="redirectToRegistro()">
                 <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login" onclick="loginUser()">
             </form>
         </div>
@@ -151,11 +163,8 @@
     </footer>
 
     <script>
-        function selectNavItem(element) {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            element.classList.add('active');
+        function redirectTo(path) {
+            window.location.href = path;
         }
 
         function loginUser() {
@@ -170,6 +179,10 @@
             } else {
                 alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
             }
+        }
+
+        function redirectToRegistro() {
+            window.location.href = '/registro/';
         }
     </script>
 </body>

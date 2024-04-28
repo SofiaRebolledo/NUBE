@@ -33,3 +33,6 @@ def roladmin(request):
 
 def analista(request):
     return render(request,'analista.html')
+
+def crearusuario_admin(request):
+    return render(request,'crearusuario_admin.html')
