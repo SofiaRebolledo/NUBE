@@ -8,4 +8,5 @@ urlpatterns = [
     path('forgot_password/', views.forgot_password, name="forgot_password"),
     path('inicio_admin/', views.inicio_admin, name="inicio_admin"),
     path('calendario/', views.inicio_admin, name="calendario"),
+    #cambiossss
 ]
