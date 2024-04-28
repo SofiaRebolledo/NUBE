@@ -7,6 +7,5 @@ urlpatterns = [
     path('registro/', views.registro, name="registro"),
     path('forgot_password/', views.forgot_password, name="forgot_password"),
     path('inicio_admin/', views.inicio_admin, name="inicio_admin"),
-    path('calendario/', views.inicio_admin, name="calendario"),
-    #cambiossss
+    path('calendario/', views.calendario, name="calendario"),
 ]
