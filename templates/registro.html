@@ -268,6 +268,23 @@
                 item.classList.remove('active');
             });
             element.classList.add('active');
+            var selectedItem = element.textContent.trim();
+            switch (selectedItem) {
+                case 'Inicio':
+                    window.location.href = '/inicio/';
+                    break;
+                case 'Ver Histórico':
+                    window.location.href = '/historico/';
+                    break;
+                case 'Realizar Tendencia':
+                    window.location.href = '/tendencia/';
+                    break;
+                case 'Resultados índices':
+                    window.location.href = '/resultadosindices/';
+                    break;
+                default:
+                    break;
+            }
         }
 
         function redirectToLogin() {
