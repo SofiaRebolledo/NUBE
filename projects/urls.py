@@ -15,4 +15,5 @@ urlpatterns = [
     path('roladmin/', views.roladmin, name="roladmin"),
     path('analista/', views.analista, name="analista"),
     path('crearusuario_admin/', views.crearusuario_admin, name="crearusuario_admin"),
+    path('basedatos_admin/', views.basedatos_admin, name="basedatos_admin"),
 ]

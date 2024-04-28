@@ -36,3 +36,6 @@ def analista(request):
 
 def crearusuario_admin(request):
     return render(request,'crearusuario_admin.html')
+
+def basedatos_admin(request):
+    return render(request,'basedatos_admin.html')
