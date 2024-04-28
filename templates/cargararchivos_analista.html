@@ -112,6 +112,23 @@
             width: 160px; /* Ancho deseado */
             height: auto; /* Altura automática según la proporción */
         }
+
+        .input-archivo {
+            left: 1100px; /* Espacio desde el borde izquierdo */
+            transform: translateX(-50%);
+            width: 160px; /* Ancho deseado */
+            height: 100; /* Altura automática según la proporción */
+        }
+
+        #archivo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer; /* Cambia el cursor al pasar sobre el área del input */
+        }
     </style>
 </head>
 <body>
@@ -130,7 +147,10 @@
         <!-- Rectángulo para el anuncio -->
         <div class="rectangulo">
             <!-- Nueva imagen seleccionararchivo.png -->
-            <img src="{% static 'IMAGENES/Subirarchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
+            <label for="archivo">
+                <img src="{% static 'IMAGENES/Subirarchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
+            </label>
+            <input type="file" id="archivo" name="archivo" accept=".pdf, .doc, .docx, .xlsx" style="display: none;"> <!-- Input oculto -->
         </div>
         <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>soy el adminnn</strong></div>
