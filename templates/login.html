@@ -156,14 +156,54 @@
     signUpButton.addEventListener('click', function() {
     window.location.href = '/registro/';
 });
+
         function selectNavItem(element) {
+            // Eliminar la clase active de todos los elementos del navbar
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
+    
+            // Añadir la clase active solo al elemento seleccionado
             element.classList.add('active');
+    
+            // Obtener el texto del elemento seleccionado
+            var selectedItem = element.textContent.trim();
+    
+            // Redirigir a la URL correspondiente
+            switch (selectedItem) {
+                case 'Inicio':
+                    window.location.href = '/inicio/';
+                    break;
+                case 'Ver Histórico':
+                    window.location.href = '/historico/';
+                    break;
+                case 'Realizar Tendencia':
+                    window.location.href = '/tendencia/';
+                    break;
+                case 'Resultados índices':
+                    window.location.href = '/resultadosindices/';
+                    break;
+                default:
+                    break;
+            }
         }
-        function redirectToRegistro() {
-            window.location.href = '/registro/';
+    
+        function toggleLogin() {
+            var loginButton = document.getElementById('login-button');
+            var selectedLogin = document.getElementById('selected-login');
+    
+            if (loginButton.style.display === 'none') {
+                loginButton.style.display = 'block';
+                selectedLogin.style.display = 'none';
+            } else {
+                loginButton.style.display = 'none';
+                selectedLogin.style.display = 'block';
+                redirectToLogin(); 
+            }
+        }
+    
+        function redirectToLogin() {
+            window.location.href = '/login/';
         }
     </script>
 </body>

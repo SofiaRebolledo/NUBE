@@ -4,6 +4,9 @@ from django.http import HttpResponse
 def inicio(request):
     return render(request, 'Plantilla.html')
 
+def plantilla(request):
+    return render(request, 'Plantilla.html')
+
 def login(request):
     return render(request,'login.html')
 
@@ -18,3 +21,12 @@ def inicio_admin(request):
 
 def calendario(request):
     return render(request,'calendario.html')
+
+def historico(request):
+    return render(request,'historico.html')
+
+def tendencia(request):
+    return render(request,'tendencia.html')
+
+def resultadosindices(request):
+    return render(request,'resultadosindices.html')
