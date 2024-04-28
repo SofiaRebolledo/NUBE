@@ -106,15 +106,21 @@
         }
 
         /* Estilo específico para cada imagen */
-        .crearusuario {
-            left: 25%; /* Espacio desde el borde izquierdo */
+        .cargararchivos {
+            left: 44%; /* Espacio desde el borde izquierdo */
             width: 160px; /* Ancho deseado */
             height: auto; /* Altura automática según la proporción */
         }
 
-        .basededatos {
-            right: 25%; /* Espacio desde el borde derecho */
-            width: 170px; /* Ancho deseado */
+        .preprocesamientodedatos {
+            right: 70%; /* Espacio desde el borde derecho */
+            width: 160px; /* Ancho deseado */
+            height: auto; /* Altura automática según la proporción */
+        }
+
+        .historicodedatos {
+            left: 70%; /* Espacio desde el borde izquierdo */
+            width: 160px; /* Ancho deseado */
             height: auto; /* Altura automática según la proporción */
         }
     </style>
@@ -134,8 +140,9 @@
         <!-- Rectángulo para el anuncio -->
         <div class="rectangulo">
             <!-- Imágenes dentro del rectángulo -->
-            <img src="{% static 'IMAGENES/crearusuario.png' %}" alt="Crear Usuario" class="crearusuario">
-            <img src="{% static 'IMAGENES/basedatos.png' %}" alt="Base de Datos" class="basededatos">
+            <img src="{% static 'IMAGENES/cargararchivos.png' %}" alt="Cargar Archivos" class="cargararchivos">
+            <img src="{% static 'IMAGENES/preprocesamientodedatos.png' %}" alt="Preprocesamiento de Datos" class="preprocesamientodedatos">
+            <img src="{% static 'IMAGENES/historicodedatos.png' %}" alt="Historico de Datos" class="historicodedatos">
         </div>
         <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>soy el adminnn</strong></div>

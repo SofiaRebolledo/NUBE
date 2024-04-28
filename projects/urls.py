@@ -12,4 +12,6 @@ urlpatterns = [
     path('historico/', views.historico, name="historico"),
     path('tendencia/', views.tendencia, name="tendencia"),
     path('resultadosindices/', views.resultadosindices, name="resultadosindices"),
+    path('roladmin/', views.roladmin, name="roladmin"),
+    path('analista/', views.analista, name="analista"),
 ]

@@ -137,12 +137,12 @@
         <div class="login-form">
             <img src="{% static 'IMAGENES/user.png' %}" alt="User" style="width: 150px; height: 150px; margin-top: 30px;">
             <form onsubmit="return false;"> <!-- Evitar el envío automático del formulario -->
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Username" id="username">
+                <input type="password" placeholder="Password" id="password">
                 <a href="/forgot_password" style="font-size: 12px; color: #ccc;">Forgot password?</a>
                 <br>
                 <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login">
-                <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login">
+                <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login" onclick="loginUser()">
             </form>
         </div>
     </main>
@@ -151,59 +151,25 @@
     </footer>
 
     <script>
-        var signUpButton = document.querySelector('.boton-login');
-
-    signUpButton.addEventListener('click', function() {
-    window.location.href = '/registro/';
-});
-
         function selectNavItem(element) {
-            // Eliminar la clase active de todos los elementos del navbar
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
-    
-            // Añadir la clase active solo al elemento seleccionado
             element.classList.add('active');
-    
-            // Obtener el texto del elemento seleccionado
-            var selectedItem = element.textContent.trim();
-    
-            // Redirigir a la URL correspondiente
-            switch (selectedItem) {
-                case 'Inicio':
-                    window.location.href = '/inicio/';
-                    break;
-                case 'Ver Histórico':
-                    window.location.href = '/historico/';
-                    break;
-                case 'Realizar Tendencia':
-                    window.location.href = '/tendencia/';
-                    break;
-                case 'Resultados índices':
-                    window.location.href = '/resultadosindices/';
-                    break;
-                default:
-                    break;
-            }
         }
-    
-        function toggleLogin() {
-            var loginButton = document.getElementById('login-button');
-            var selectedLogin = document.getElementById('selected-login');
-    
-            if (loginButton.style.display === 'none') {
-                loginButton.style.display = 'block';
-                selectedLogin.style.display = 'none';
+
+        function loginUser() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Verificar las credenciales
+            if (username === 'admin' && password === 'admin') {
+                window.location.href = '/roladmin/';
+            } else if (username === 'analista' && password === 'analista') {
+                window.location.href = '/analista/';
             } else {
-                loginButton.style.display = 'none';
-                selectedLogin.style.display = 'block';
-                redirectToLogin(); 
+                alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
             }
-        }
-    
-        function redirectToLogin() {
-            window.location.href = '/login/';
         }
     </script>
 </body>
