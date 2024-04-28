@@ -67,7 +67,7 @@
             width: auto;
             margin-left: 10px;
         }
-        img.boton-login {
+        .boton-login {
             height: 40px;
             width: auto;
             margin-left: 1050px; 
@@ -106,20 +106,9 @@
         }
 
         /* Estilo específico para cada imagen */
-        .cargararchivos {
-            left: 44%; /* Espacio desde el borde izquierdo */
-            width: 160px; /* Ancho deseado */
-            height: auto; /* Altura automática según la proporción */
-        }
-
-        .preprocesamientodedatos {
-            right: 70%; /* Espacio desde el borde derecho */
-            width: 160px; /* Ancho deseado */
-            height: auto; /* Altura automática según la proporción */
-        }
-
-        .historicodedatos {
-            left: 70%; /* Espacio desde el borde izquierdo */
+        .seleccionar-archivo {
+            left: 25%; /* Espacio desde el borde izquierdo */
+            transform: translateX(-50%);
             width: 160px; /* Ancho deseado */
             height: auto; /* Altura automática según la proporción */
         }
@@ -132,19 +121,16 @@
     <header>
         <div class="login-container">
             <img src="{% static 'IMAGENES/logo_crc.png' %}" alt="Logo CRC">
-            <img class="boton-login" id="login-button" src="{% static 'IMAGENES/boton_login.png' %}" alt="Botón Login" onclick="toggleLogin()">
-            <img class="boton-login" id="selected-login" src="{% static 'IMAGENES/login_seleccionado.png' %}" alt="Botón Login Seleccionado" onclick="toggleLogin()" style="display: none;">
+            <!-- Eliminados los eventos y las imágenes anteriores -->
+            <img class="boton-login" id="login-button" src="{% static 'IMAGENES/boton_login.png' %}" alt="Botón Login">
+            <img class="boton-login" id="selected-login" src="{% static 'IMAGENES/login_seleccionado.png' %}" alt="Botón Login Seleccionado" style="display: none;">
         </div>
     </header>
     <main>
         <!-- Rectángulo para el anuncio -->
         <div class="rectangulo">
-            <!-- Imágenes dentro del rectángulo -->
-            <!-- Imágenes dentro del rectángulo -->
-            <img src="{% static 'IMAGENES/cargararchivos.png' %}" alt="Cargar Archivos" class="cargararchivos" onclick="redirectToCargarArchivos()">
-            <img src="{% static 'IMAGENES/preprocesamientodedatos.png' %}" alt="Preprocesamiento de Datos" class="preprocesamientodedatos" onclick="redirectToPreprocesamientoDatos()">
-            <img src="{% static 'IMAGENES/historicodedatos.png' %}" alt="Historico de Datos" class="historicodedatos" onclick="redirectToHistoricoDatos()">
-
+            <!-- Nueva imagen seleccionararchivo.png -->
+            <img src="{% static 'IMAGENES/seleccionararchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
         </div>
         <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>soy el adminnn</strong></div>
@@ -170,18 +156,6 @@
         function redirectToLogin() {
             window.location.href = '/login/';
         }
-        function redirectToCargarArchivos() {
-    window.location.href = '/cargararchivos_analista/';
-}
-
-function redirectToPreprocesamientoDatos() {
-    window.location.href = '/preprocesamientodatos_analista/';
-}
-
-function redirectToHistoricoDatos() {
-    window.location.href = '/historicodatos_analista/';
-}
-
     </script>
 </body>
 </html>

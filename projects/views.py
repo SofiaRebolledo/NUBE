@@ -39,3 +39,12 @@ def crearusuario_admin(request):
 
 def basedatos_admin(request):
     return render(request,'basedatos_admin.html')
+
+def cargararchivos_analista(request):
+    return render(request,'cargararchivos_analista.html')
+
+def preprocesamientodatos_analista(request):
+    return render(request,'preprocesamientodatos_analista.html')
+
+def historicodatos_analista(request):
+    return render(request,'historicodatos_analista.html')

@@ -16,4 +16,7 @@ urlpatterns = [
     path('analista/', views.analista, name="analista"),
     path('crearusuario_admin/', views.crearusuario_admin, name="crearusuario_admin"),
     path('basedatos_admin/', views.basedatos_admin, name="basedatos_admin"),
+    path('cargararchivos_analista/', views.cargararchivos_analista, name="cargararchivos_analista"),
+    path('preprocesamientodatos_analista/', views.preprocesamientodatos_analista, name="preprocesamientodatos_analista"),
+    path('historicodatos_analista/', views.historicodatos_analista, name="historicodatos_analista"),
 ]
