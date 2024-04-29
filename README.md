@@ -3,5 +3,5 @@
 <ol>
   <li>Sofia Rebolledo</li>
   <li>Nicolás Cedeño</li>
-  <li>En espera</li>
+  <li></li>
 </ol>
