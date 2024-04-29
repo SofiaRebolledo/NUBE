@@ -37,15 +37,20 @@
             color: black;
             padding: 10px;
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             width: 100%;
             position: fixed;
+            left: 0px; /* Cambia este valor para ajustar el desplazamiento */
+            top: 110px;
         }
         nav div {
             cursor: pointer;
             padding: 10px;
             font-weight: bold;
+            flex: 1; /* Para que cada elemento del navbar ocupe el mismo espacio disponible */
+            text-align: center;
         }
+
         nav div.active {
             background-color: white;
         }
@@ -55,6 +60,7 @@
             justify-content: center;
             padding: 5px;
             margin-top: 100px; 
+            position: relative; /* Agregado para posicionamiento absoluto de las listas */
         }
         .graph {
             margin: 10px;
@@ -96,12 +102,68 @@
         img#selected-login {
             display: none; 
         }
+        
         .titulo-registro {
-        color: #F32E61;
-        font-size: 24px;
-        margin-bottom: 10px;
-        margin-top: 70px; /* Ajusta el margen superior según sea necesario */
-    }
+            color: #F32E61;
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-top: 70px; /* Ajusta el margen superior según sea necesario */
+            margin-left: 0px;
+        }
+
+        .calendar-container {
+            text-align: left; /* Alinea el texto del calendario a la izquierda */
+            position: absolute;
+            left: 20px; /* Ajusta la posición izquierda del calendario */
+            top: 100px; /* Ajusta la posición superior del calendario */
+        }
+
+        .startdate {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #F32E61; /* Borde rosa */
+            background-color: #FEE9EC; /* Fondo rosa claro */
+            width: 200px; /* Ancho del calendario */
+        }
+
+        /* Estilos para la primera lista desplegable */
+        .dropdown-container-indice {
+            position: absolute;
+            top: 150px; /* Espacio entre el título y la lista desplegable */
+            left: 20px; /* Ajusta el margen izquierdo */
+            width: 200px; /* Ancho de la lista desplegable */
+        }
+
+        .dropdown-container-indice label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .dropdown-container-indice select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #F32E61;
+            background-color: #FEE9EC; /* Fondo rosa claro */
+            font-size: 16px;
+        }
+
+        /* Estilos para el botón de descarga */
+        .boton-descargar {
+            position: absolute;
+            bottom: 10px; /* Ajusta la posición vertical */
+            right: 20px; /* Ajusta la posición horizontal */
+            cursor: pointer;
+            top: 370px;
+        }
+
+        /* Estilos para achicar la imagen del botón de descarga */
+        .boton-descargar-sm {
+            height: 40px; /* Altura reducida */
+            width: auto; /* Ancho ajustado automáticamente */
+        }
+
+
     </style>
 </head>
 <body>
@@ -114,17 +176,34 @@
             <img class="boton-login" id="login-button" src="{% static 'IMAGENES/boton_login.png' %}" alt="Botón Login" onclick="toggleLogin()">
             <img class="boton-login" id="selected-login" src="{% static 'IMAGENES/login_seleccionado.png' %}" alt="Botón Login Seleccionado" onclick="toggleLogin()" style="display: none;">
         </div>
-    </header>
-    <main>
         <nav>
             <div class="nav-item" onclick="selectNavItem(this)">Inicio</div>
             <div class="nav-item" onclick="selectNavItem(this)">Ver Histórico</div>
             <div class="nav-item" onclick="selectNavItem(this)">Realizar Tendencia</div>
             <div class="nav-item" onclick="selectNavItem(this)">Resultados índices</div>
         </nav>
-        
-        <!-- Aquí va el contenido de la página -->
-        <div class="titulo-registro"><strong>Bienvenido a los Resultados de Indices</strong></div>
+    </header>
+    <main>
+        <div class="titulo-registro"><strong>Bienvenido a Realizar Tendencia</strong></div>
+        <!-- Calendario -->
+        <div class="calendar-container">
+            <label for="start"></label>
+            <input class="startdate" type="date" id="start" name="trip-start" min="2020-01-01" />
+        </div>
+
+        <!-- Lista desplegable para seleccionar entre los índices -->
+        <div class="dropdown-container-indice">
+            <label for="indice">Índice:</label>
+            <select id="indice" name="indice">
+                <option value="linda">Linda</option>
+                <option value="stenbacka">Stenbacka</option>
+                <option value="HHI">HHI</option>
+            </select>
+        </div>
+
+        <!-- Botón de descarga -->
+        <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">
+
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
