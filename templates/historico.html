@@ -55,6 +55,7 @@
             justify-content: center;
             padding: 5px;
             margin-top: 100px; 
+            position: relative; /* Agregado para posicionamiento absoluto de las listas */
         }
         .graph {
             margin: 10px;
@@ -102,14 +103,14 @@
             font-size: 24px;
             margin-bottom: 10px;
             margin-top: 70px; /* Ajusta el margen superior según sea necesario */
-            text-align: center; /* Alinea el texto del título al centro */
+            margin-left: 0px;
         }
 
         .calendar-container {
             text-align: left; /* Alinea el texto del calendario a la izquierda */
             position: absolute;
             left: 20px; /* Ajusta la posición izquierda del calendario */
-            top: 200px; /* Ajusta la posición superior del calendario */
+            top: 100px; /* Ajusta la posición superior del calendario */
         }
 
         .startdate {
@@ -117,7 +118,67 @@
             border-radius: 5px;
             border: 1px solid #F32E61; /* Borde rosa */
             background-color: #FEE9EC; /* Fondo rosa claro */
+            width: 200px; /* Ancho del calendario */
         }
+
+        /* Estilos para la primera lista desplegable */
+        .dropdown-container-prepago {
+            position: absolute;
+            top: 150px; /* Espacio entre el título y la lista desplegable */
+            left: 20px; /* Ajusta el margen izquierdo */
+            width: 200px; /* Ancho de la lista desplegable */
+        }
+
+        .dropdown-container-prepago label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .dropdown-container-prepago select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #F32E61;
+            background-color: #FEE9EC; /* Fondo rosa claro */
+            font-size: 16px;
+        }
+
+        /* Estilos para la segunda lista desplegable */
+        .dropdown-container-operador {
+            position: absolute;
+            top: 220px; /* Espacio entre el título y la lista desplegable */
+            left: 20px; /* Ajusta el margen izquierdo */
+            width: 200px; /* Ancho de la lista desplegable */
+        }
+
+        .dropdown-container-operador label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .dropdown-container-operador select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #F32E61;
+            background-color: #FEE9EC; /* Fondo rosa claro */
+            font-size: 16px;
+        }
+        /* Estilos para el botón de descarga */
+        .boton-descargar {
+            position: absolute;
+            bottom: 10px; /* Ajusta la posición vertical */
+            right: 20px; /* Ajusta la posición horizontal */
+            cursor: pointer;
+            top: 370px;
+        }
+
+        /* Estilos para achicar la imagen del botón de descarga */
+        .boton-descargar-sm {
+            height: 40px; /* Altura reducida */
+            width: auto; /* Ancho ajustado automáticamente */
+        }
+
 
     </style>
 </head>
@@ -145,6 +206,29 @@
             <label for="start"></label>
             <input class="startdate" type="date" id="start" name="trip-start" min="2020-01-01" />
         </div>
+
+        <!-- Lista desplegable para seleccionar entre prepago y postpago -->
+        <div class="dropdown-container-prepago">
+            <label for="tipo-plan">Tipo de Plan:</label>
+            <select id="tipo-plan" name="tipo-plan">
+                <option value="prepago">Prepago</option>
+                <option value="postpago">Postpago</option>
+            </select>
+        </div>
+
+        <!-- Lista desplegable para seleccionar entre Claro, Movistar, ETB y Tigo -->
+        <div class="dropdown-container-operador">
+            <label for="operador">Operador:</label>
+            <select id="operador" name="operador">
+                <option value="claro">Claro</option>
+                <option value="movistar">Movistar</option>
+                <option value="etb">ETB</option>
+                <option value="tigo">Tigo</option>
+            </select>
+        </div>
+        <!-- Botón de descarga -->
+        <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">
+
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
