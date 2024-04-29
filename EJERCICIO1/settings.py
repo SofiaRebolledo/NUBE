@@ -74,17 +74,27 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'projects',
+#        'USER' : 'postgres',
+#        'PASSWORD' : 'Sofia@2003',
+#        'HOST' : 'localhost',
+#        'PORT' : 5432,
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projects',
         'USER' : 'postgres',
-        'PASSWORD' : 'admin',
+        'PASSWORD' : 'Sofia@2003',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
 }
-
 
 #DATABASES = {
 #    'default': {
@@ -92,6 +102,8 @@ DATABASES = {
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
