@@ -1,19 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
-import psycopg2
 
-conn = psycopg2.connect(
-    dbname="projects",
-    user="postgres",
-    password="admin",
-    host="localhost",
-    port ="5432"
-)
-cur = conn.cursor()
 
-@login_required
+
 def inicio(request):
     return render(request, 'Plantilla.html')
 
@@ -36,15 +26,15 @@ def registro(request):
 
         #query = "update public.auth_user set idrol = "+ str(rol) +" where email = '"+ email + "'"
         #print(query)
-        cur.execute("update public.auth_user set idrol = "+ str(rol) +" where username = '"+ username + "'")
-        filas = None
-        fila = None
-        cur.execute("select idrol from public.auth_user")
-        filas = cur.fetchall()
-        for fila in filas:
-            print(fila)
+        #cur.execute("update public.auth_user set idrol = "+ str(rol) +" where username = '"+ username + "'")
+        #filas = None
+        #fila = None
+        #cur.execute("select idrol from public.auth_user")
+        #filas = cur.fetchall()
+        #for fila in filas:
+        #   print(fila)
         
-        conn.commit()
+        #conn.commit()
 
         print("Username:  "+username,nombre,apellido,telefono,cedula,email,password)
     return render(request,'registro.html')
