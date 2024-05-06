@@ -198,6 +198,7 @@
         margin-bottom: 10px;
         margin-top: 20px; /* Ajusta el margen superior según sea necesario */
     }
+    
     </style>
 </head>
 <body>
@@ -222,45 +223,52 @@
             <div class="registro-form">
                 <div class="titulo-registro">Registre su cuenta</div>
                 <a href="#" class="iniciar-sesion" onclick="redirectToLogin()">¿Ya tiene una cuenta? Iniciar sesión</a>
-                <form action={% url 'registro' %} method="POST">
+
+                <form id ="formularioRegistro" action="" method="POST">
                     {% csrf_token %}
                     <div class="row">
                         <div class="column">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" placeholder="Nombre">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
                         </div>
                         <div class="column">
-                            <label for="apellidos">Apellidos:</label>
-                            <input type="text" id="apellidos" placeholder="Apellidos">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Apellido">
                         </div>
                     </div>
                     <div class="row">
                         <div class="column">
                             <label for="telefono">Teléfono:</label>
-                            <input type="text" id="telefono" placeholder="Teléfono">
+                            <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
                         </div>
                         <div class="column">
                             <label for="cedula">Cédula:</label>
-                            <input type="text" id="cedula" placeholder="Cédula">
+                            <input type="text" id="cedula" name="cedula" placeholder="Cédula">
                         </div>
                     </div>
                     <div class="row">
                         <div class="column">
                             <label for="email">Email:</label>
-                            <input type="text" id="email" placeholder="Email">
+                            <input type="text" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="column">
                             <label for="password">Contraseña:</label>
-                            <input type="password" id="password" placeholder="Contraseña">
+                            <input type="password" id="password" name="password" placeholder="Contraseña">
                         </div>
                     </div>
+                    <button type="submit" name=submit class="boton-registro" href ="/login/">
+                        <img src="{% static 'IMAGENES/registro.png' %}" alt="Registro">
+                    </button>
                 </form>
             </div>
         </div>
-
-        <a href="/login/">
+        
+        <!-- 
+            <a href="/login/" id = "submitImagen">
             <img src="{% static 'IMAGENES/registro.png' %}" alt="Registro" class="boton-registro">
         </a>
+
+         -->
 
     </main>
     <footer>
@@ -295,6 +303,10 @@
         function redirectToLogin() {
             window.location.href = '/login/';
         }
+
+        document.getElementById("submitImagen").addEventListener("click", function() {
+            document.getElementById("formularioRegistro").submit();
+        });
     </script>
 </body>
 </html>
