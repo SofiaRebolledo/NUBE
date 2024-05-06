@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -221,7 +222,8 @@
             <div class="registro-form">
                 <div class="titulo-registro">Registre su cuenta</div>
                 <a href="#" class="iniciar-sesion" onclick="redirectToLogin()">¿Ya tiene una cuenta? Iniciar sesión</a>
-                <form onsubmit="return false;">
+                <form action={% url 'registro' %} method="POST">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="column">
                             <label for="nombre">Nombre:</label>
@@ -296,3 +298,6 @@
     </script>
 </body>
 </html>
+
+
+{% endblock content %}

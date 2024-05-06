@@ -74,6 +74,19 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'projects',
+        'USER' : 'postgres',
+        'PASSWORD' : 'admin',
+        'HOST' : 'localhost',
+        'PORT' : 5432,
+    }
+}
+
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -84,17 +97,6 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 #        'PORT' : 5432,
 #    }
 #}
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'projects',
-        'USER' : 'postgres',
-        'PASSWORD' : 'Sofia@2003',
-        'HOST' : 'localhost',
-        'PORT' : 5432,
-    }
-}
 
 #DATABASES = {
 #    'default': {
