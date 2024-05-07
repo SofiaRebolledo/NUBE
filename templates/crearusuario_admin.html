@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,53 +212,56 @@
             <div class="registro-form">
                 <div class="titulo-registro">Registre su cuenta</div>
                 <a href="#" class="iniciar-sesion" onclick="redirectToLogin()">¿Ya tiene una cuenta? Iniciar sesión</a>
-                <div class="rol-selector">
-                    <label for="rol" style="color: black; margin-left: 0px;">Rol:</label>
-                    <select id="rol" name="rol" method="GET">
-                        <option value="usuario">Usuario</option>
-                        <option value="administrador">Administrador</option>
-                        <option value="analista">Analista</option>
-                    </select>
-                </div>
-                <form action="" method = "FORM">
-                    <div class="row">
-                        <div class="column">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-                        </div>
-                        <div class="column">
-                            <label for="apellidos">Apellidos:</label>
-                            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
-                        </div>
-                        <div class="column">
-                            <label for="cedula">Cédula:</label>
-                            <input type="text" id="cedula" name="cedula" placeholder="Cédula">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="Email">
-                        </div>
-                        <div class="column">
-                            <label for="password">Contraseña:</label>
-                            <input type="password" id="password" name="email" placeholder="Contraseña">
-                        </div>
-                    </div>
+                <form action="" method = "POST">
+                    {% csrf_token %}
 
-                    <button type="submit" name="submit" class="boton-registro">
-                        <img src="{% static 'IMAGENES/registro.png' %}" alt="Registro" style="height: 50px; position: relative; top: -7px; left: -10px;">
-                    </button>
+                    <div class="rol-selector">
+                        <label for="rol" style="color: black; margin-left: 0px;">Rol:</label>
+                        <select id="rol" name="rol">
+                            <option value="usuario">Usuario</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="analista">Analista</option>
+                        </select>
+                    </div>
                     
-                    <a href="/roladmin/" class="boton-login" style="position: fixed; top: 400px; right: 85px;">
-                        <img src="{% static 'IMAGENES/menu.png' %}" alt="Botón Login" style="height: 50px;">
-                    </a> 
+                        <div class="row">
+                            <div class="column">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="column">
+                                <label for="apellidos">Apellidos:</label>
+                                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+                            </div>
+                            <div class="column">
+                                <label for="cedula">Cédula:</label>
+                                <input type="text" id="cedula" name="cedula" placeholder="Cédula">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="column">
+                                <label for="password">Contraseña:</label>
+                                <input type="password" id="password" name="password" placeholder="Contraseña">
+                            </div>
+                        </div>
+
+                        <button type="submit" name="submit" class="boton-registro">
+                            <img src="{% static 'IMAGENES/registro.png' %}" alt="Registro" style="height: 50px; position: relative; top: -7px; left: -10px;">
+                        </button>
+                        
+                        <a href="/roladmin/" class="boton-login" style="position: fixed; top: 400px; right: 85px;">
+                            <img src="{% static 'IMAGENES/menu.png' %}" alt="Botón Login" style="height: 50px;">
+                        </a> 
 
                 </form>
             </div>
@@ -275,3 +279,6 @@
     </script>
 </body>
 </html>
+
+
+{% endblock content %}

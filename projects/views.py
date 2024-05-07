@@ -68,16 +68,18 @@ def analista(request):
     return render(request,'analista.html')
 
 def crearusuario_admin(request):
-    if request.method == 'GET':
+    
+    if request.method == 'POST':
+        
         rol_seleccionado = request.POST.get('rol')
         print(rol_seleccionado)
-    if request.method == 'FORM':
         nombre = request.POST.get('nombre')
         apellidos = request.POST.get('apellidos')
         telefono = request.POST.get('telefono')
         cedula = request.POST.get('cedula')
         email = request.POST.get('email')
         password = request.POST.get('password')
+
         print(nombre,apellidos,telefono,cedula,email,password)
 
     return render(request,'crearusuario_admin.html')
