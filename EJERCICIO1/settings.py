@@ -76,27 +76,27 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 
 
 
+#DATABASES = {
+#    'default': {
+#       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'projects',
+#        'USER' : 'postgres',
+#        'PASSWORD' : 'admin',
+#        'HOST' : 'localhost',
+#        'PORT' : 5432,
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projects',
         'USER' : 'postgres',
-        'PASSWORD' : 'admin',
+        'PASSWORD' : 'Sofia@2003',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
 }
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'projects',
-#        'USER' : 'postgres',
-#        'PASSWORD' : 'Sofia@2003',
-#        'HOST' : 'localhost',
-#        'PORT' : 5432,
-#    }
-#}
 
 #DATABASES = {
 #   'default': {

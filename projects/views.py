@@ -5,12 +5,13 @@ from django.contrib.auth.decorators import login_required
 import psycopg2
 from . import models
 from projects.models import Usuario_Registrado
+from django.shortcuts import render, redirect
 
 
 conn = psycopg2.connect(
     dbname="projects",
     user="postgres",
-    password="admin",
+    password="Sofia@2003",
     host="localhost",
     port ="5432"
 )
@@ -39,10 +40,11 @@ def registro(request):
         print("Username:  "+username,nombre,apellido,telefono,cedula,email,password)
 
         #Registrar usuario
+
         if User.objects.filter(username=username).exists():
-            return HttpResponse("Ya existe el usuario")
+            return redirect("/Error/")  
         elif User.objects.filter(email=email).exists():
-            return HttpResponse("El correo ya existe")
+            return redirect("/Error/")
         else:
             #Registramos el usuario
             user=User()
@@ -59,7 +61,7 @@ def registro(request):
             user2.idrol=1
             user2.rol="Usuario"
             user2.save()
-            return HttpResponse("Registro completado")
+            return redirect("/login/")
     return render(request,'registro.html')
     
 
@@ -100,9 +102,9 @@ def crearusuario_admin(request):
         print(nombre,apellidos,telefono,cedula,email,password)
 
         if User.objects.filter(username=username).exists():
-            return HttpResponse("Ya existe el usuario")
+            return redirect("/Error/")
         elif User.objects.filter(email=email).exists():
-            return HttpResponse("El correo ya existe")
+            return redirect("/Error/")
         else:
             #Registramos el usuario
             if rol_seleccionado == "usuario":
@@ -156,7 +158,7 @@ def crearusuario_admin(request):
                 user2.idrol = 3
                 user2.rol="Analista"
                 user2.save()
-            return HttpResponse("Registro completado")
+            return redirect("/roladmin/")
 
     return render(request,'crearusuario_admin.html')
 
@@ -171,3 +173,8 @@ def preprocesamientodatos_analista(request):
 
 def historicodatos_analista(request):
     return render(request,'historicodatos_analista.html')
+
+def Error(request):
+    return render(request,'Error.html')
+
+
