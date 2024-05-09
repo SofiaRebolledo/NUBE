@@ -36,10 +36,6 @@ def registro(request):
         email= str(request.POST.get('email')).strip(' ')
         password= str(request.POST.get('password'))
         username = nombre + "_" + apellido + "_" + str(cedula).strip(" ")
-        cur.execute("select * from public.auth_user")
-        filas = cur.fetchall()
-        for fila in filas:
-            print(fila)
         print("Username:  "+username,nombre,apellido,telefono,cedula,email,password)
 
         #Registrar usuario
