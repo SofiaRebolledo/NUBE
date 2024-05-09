@@ -132,6 +132,18 @@
             color: #3766CB;
         }
 
+        .login-form .boton-login-login {
+    height: 40px; /* Ajustar la altura del botón */
+    width: 150px; /* Mantener el ancho automático para que se ajuste al contenido */
+    margin-top: 10px; /* Ajustar la distancia desde la parte superior */
+    margin-left: -140px; /* Ajustar la distancia desde la izquierda */
+    cursor: pointer;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+
+
         
     </style>
 </head>
@@ -162,8 +174,9 @@
                 <br>
                 <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login" onclick="redirectToRegistro()">
                 <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login">
-                <button type="submit" name="submit" class="boton-login">
+                <button type="submit" name="submit" class="boton-login boton-login-login">
                 </button>
+                
             </form>
         </div>
     </main>
