@@ -16,4 +16,3 @@ class Usuario_Registrado(models.Model):
     rol = models.TextField(max_length=100,default="Usuario")
     def __str__(self):
         return "%s the user_registered" % self.cedula
-
