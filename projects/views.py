@@ -8,14 +8,6 @@ from projects.models import Usuario_Registrado
 from django.shortcuts import render, redirect
 
 
-conn = psycopg2.connect(
-    dbname="projects",
-    user="postgres",
-    password="admin",
-    host="localhost",
-    port ="5432"
-)
-cur = conn.cursor()
 
 def inicio(request):
     return render(request, 'Plantilla.html')
