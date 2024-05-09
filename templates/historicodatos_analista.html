@@ -186,6 +186,12 @@
             height: 40px; /* Altura reducida */
             width: auto; /* Ancho ajustado automáticamente */
         }
+        .logout-button {
+        margin-left: 965px; /* Esto alinea la imagen a la derecha */
+        cursor: pointer;
+        height: 40px; /* Altura reducida */
+        width: auto; /* Ancho ajustado automáticamente */
+        }
 
 
     </style>
@@ -245,8 +251,21 @@
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
+        <img src="{% static 'IMAGENES/logout.png' %}" alt="Logout" class="logout-button" onclick="logout()">
     </footer>
     <script>
+        function logout() {
+        // Hacer una solicitud AJAX para cerrar la sesión del usuario
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/logout/", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Redirigir al usuario a la página de inicio
+                window.location.href = '/inicio/';
+            }
+        };
+        xhr.send();
+    }
         function toggleLogin() {
             var loginButton = document.getElementById('login-button');
             var selectedLogin = document.getElementById('selected-login');

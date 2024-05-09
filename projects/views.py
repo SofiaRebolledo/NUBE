@@ -7,6 +7,7 @@ import psycopg2
 from . import models
 from projects.models import Usuario_Registrado
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout as django_logout
 
 
 
@@ -203,4 +204,10 @@ def Error(request):
 
 def usuarionoexiste(request):
     return render(request,'usuarionoexiste.html')
+
+def logout(request):
+    # Cerrar sesión del usuario
+    django_logout(request)
+    # Redirigir a la página de inicio
+    return redirect('/inicio/')
 

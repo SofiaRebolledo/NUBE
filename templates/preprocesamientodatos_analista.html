@@ -151,6 +151,12 @@
             width: 100%; /* Ancho al 100% del contenedor */
             height: auto; /* Altura automática para mantener la proporción */
         }
+        .logout-button {
+        margin-left: 965px; /* Esto alinea la imagen a la derecha */
+        cursor: pointer;
+        height: 40px; /* Altura reducida */
+        width: auto; /* Ancho ajustado automáticamente */
+        }
     </style>
 </head>
 <body>
@@ -182,6 +188,7 @@
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
+        <img src="{% static 'IMAGENES/logout.png' %}" alt="Logout" class="logout-button" onclick="logout()">
     </footer>
     <!-- Botón para preprocesar -->
     <div class="boton-preprocesar">
@@ -194,6 +201,18 @@
     </a>
 
     <script>
+        function logout() {
+        // Hacer una solicitud AJAX para cerrar la sesión del usuario
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/logout/", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Redirigir al usuario a la página de inicio
+                window.location.href = '/inicio/';
+            }
+        };
+        xhr.send();
+    }
         // Función para cambiar entre los botones de login
         function toggleLogin() {
             var loginButton = document.getElementById('login-button');
