@@ -118,7 +118,7 @@ def crearusuario_admin(request):
         cedula = request.POST.get('cedula')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        username = nombre + "_" + apellidos + "_" + str(cedula).strip(" ")
+        username = cedula
         print(rol_seleccionado)
         print(nombre,apellidos,telefono,cedula,email,password)
 
