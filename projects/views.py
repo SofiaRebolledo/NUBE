@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate,login,logout
 import psycopg2
 from . import models
 from projects.models import Usuario_Registrado
@@ -12,22 +13,35 @@ from django.shortcuts import render, redirect
 def inicio(request):
     return render(request, 'Plantilla.html')
 
-def login(request):
+def login1(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print (username,password)
-        if User.objects.filter(username=username).exists() and User.objects.filter(password=password).exists():
-            print("Logueado")
-            return redirect("/admin/") 
+        print(username,password)
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            if user.is_superuser == 1:
+                login(request,user)
+                print("Logueado como admin")
+                return redirect("/roladmin/")
+            elif user.is_staff == 1:
+                login(request,user)
+                print("Logueado como analista")
+                return redirect("/analista/")
+            else:
+                login(request,user)
+                print("Logueado como usuario")
+                return redirect("/inicio/")
         else:
             print("Credenciales incorrectas")
-            return redirect("/usuarionoexiste/") 
+            return redirect("/usuarionoexiste/")
     print("x")
+    logout(request)
     return render(request,'login.html')
 
+
+
 def registro(request):
-    rol = 3
     if request.method=='POST':
         nombre =  str((request.POST.get('nombre'))).strip(' ')
         apellido = str(request.POST.get('apellido')).strip(' ')
@@ -35,8 +49,8 @@ def registro(request):
         cedula= int(request.POST.get('cedula'))
         email= str(request.POST.get('email')).strip(' ')
         password= str(request.POST.get('password'))
-        username = nombre + "_" + apellido + "_" + str(cedula).strip(" ")
-        print("Username:  "+username,nombre,apellido,telefono,cedula,email,password)
+        username = cedula
+        print(username,nombre,apellido,telefono,cedula,email,password)
 
         #Registrar usuario
 
@@ -67,24 +81,31 @@ def registro(request):
 def forgot_password(request):
     return render(request,'forgot_password.html')
 
+@login_required(login_url="login")
 def inicio_admin(request):
     return render(request,'inicio_admin.html')
 
+@login_required(login_url="login")
 def historico(request):
     return render(request,'historico.html')
 
+@login_required(login_url="login")
 def tendencia(request):
     return render(request,'tendencia.html')
 
+@login_required(login_url="login")
 def resultadosindices(request):
     return render(request,'resultadosindices.html')
 
+@login_required(login_url="login")
 def roladmin(request):
     return render(request,'admin.html')
 
+@login_required(login_url="login")
 def analista(request):
     return render(request,'analista.html')
 
+@login_required(login_url="login")
 def crearusuario_admin(request):
     
     if request.method == 'POST':
@@ -161,15 +182,19 @@ def crearusuario_admin(request):
 
     return render(request,'crearusuario_admin.html')
 
+@login_required(login_url="login")
 def basedatos_admin(request):
     return render(request,'basedatos_admin.html')
 
+@login_required(login_url="login")
 def cargararchivos_analista(request):
     return render(request,'cargararchivos_analista.html')
 
+@login_required(login_url="login")
 def preprocesamientodatos_analista(request):
     return render(request,'preprocesamientodatos_analista.html')
 
+@login_required(login_url="login")
 def historicodatos_analista(request):
     return render(request,'historicodatos_analista.html')
 
@@ -178,3 +203,4 @@ def Error(request):
 
 def usuarionoexiste(request):
     return render(request,'usuarionoexiste.html')
+
