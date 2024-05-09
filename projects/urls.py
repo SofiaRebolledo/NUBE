@@ -19,4 +19,5 @@ urlpatterns = [
     path('preprocesamientodatos_analista/', views.preprocesamientodatos_analista, name="preprocesamientodatos_analista"),
     path('historicodatos_analista/', views.historicodatos_analista, name="historicodatos_analista"),
     path('Error/', views.Error, name="Error"),
+    path('usuarionoexiste/', views.usuarionoexiste, name="usuarionoexiste"),
 ]

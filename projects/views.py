@@ -19,10 +19,10 @@ def login(request):
         print (username,password)
         if User.objects.filter(username=username).exists() and User.objects.filter(password=password).exists():
             print("Logueado")
-            return HttpResponse("Logueado!!!")
+            return redirect("/admin/") 
         else:
             print("Credenciales incorrectas")
-            return HttpResponse("No existe en la base de datos")
+            return redirect("/usuarionoexiste/") 
     print("x")
     return render(request,'login.html')
 
@@ -180,4 +180,5 @@ def historicodatos_analista(request):
 def Error(request):
     return render(request,'Error.html')
 
-
+def usuarionoexiste(request):
+    return render(request,'usuarionoexiste.html')

@@ -7,6 +7,7 @@
     <title>CRC</title>
     <style>
         /* Estilos previos */
+        /* Estilos previos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -130,6 +131,8 @@
             text-decoration: none;
             color: #3766CB;
         }
+
+        
     </style>
 </head>
 <body>
@@ -151,7 +154,7 @@
         <!-- Formulario de login -->
         <div class="login-form">
             <img src="{% static 'IMAGENES/user.png' %}" alt="User" style="width: 150px; height: 150px; margin-top: 30px;">
-            <form action="" method="POST"> <!-- Evitar el envío automático del formulario onclick="loginUser()" --> 
+            <form action="" method="POST"> <!-- Evitar el envío automático del formulario --> 
                 {% csrf_token %}
                 <input type="text" placeholder="Username" id="username" name="username">
                 <input type="password" placeholder="Password" id="password" name="password">
@@ -171,20 +174,6 @@
     <script>
         function redirectTo(path) {
             window.location.href = path;
-        }
-
-        function loginUser() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // Verificar las credenciales
-            if (username === 'admin' && password === 'admin') {
-                window.location.href = '/roladmin/';
-            } else if (username === 'analista' && password === 'analista') {
-                window.location.href = '/analista/';
-            } else {
-                alert('Credenciales incorrectas. Por favor, inténtelo de nuevo.');
-            }
         }
 
         function redirectToRegistro() {
