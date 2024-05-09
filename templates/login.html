@@ -151,13 +151,16 @@
         <!-- Formulario de login -->
         <div class="login-form">
             <img src="{% static 'IMAGENES/user.png' %}" alt="User" style="width: 150px; height: 150px; margin-top: 30px;">
-            <form onsubmit="return false;"> <!-- Evitar el envío automático del formulario -->
-                <input type="text" placeholder="Username" id="username">
-                <input type="password" placeholder="Password" id="password">
+            <form action="" method="POST"> <!-- Evitar el envío automático del formulario onclick="loginUser()" --> 
+                {% csrf_token %}
+                <input type="text" placeholder="Username" id="username" name="username">
+                <input type="password" placeholder="Password" id="password" name="password">
                 <a href="/forgot_password" style="font-size: 12px; color: #ccc;">Forgot password?</a>
                 <br>
                 <img src="{% static 'IMAGENES/signup.png' %}" alt="Sign up" class="boton-login" onclick="redirectToRegistro()">
-                <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login" onclick="loginUser()">
+                <img src="{% static 'IMAGENES/boton_login.png' %}" alt="Log in" class="boton-login">
+                <button href = {% "/login/ "%}type="submit" name="submit" class="boton-login">
+                </button>
             </form>
         </div>
     </main>

@@ -11,7 +11,7 @@ from django.shortcuts import render, redirect
 conn = psycopg2.connect(
     dbname="projects",
     user="postgres",
-    password="Sofia@2003",
+    password="admin",
     host="localhost",
     port ="5432"
 )
@@ -21,6 +21,17 @@ def inicio(request):
     return render(request, 'Plantilla.html')
 
 def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print (username,password)
+        if User.objects.filter(username=username).exists() and User.objects.filter(password=password).exists():
+            print("Logueado")
+            return HttpResponse("Logueado!!!")
+        else:
+            print("Credenciales incorrectas")
+            return HttpResponse("No existe en la base de datos")
+    print("x")
     return render(request,'login.html')
 
 def registro(request):

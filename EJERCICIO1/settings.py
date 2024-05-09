@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #        'NAME': 'projects',
 #        'USER' : 'postgres',
-#        'PASSWORD' : 'admin',
+#        'PASSWORD' : 'admin','Sofia@2003'
 #        'HOST' : 'localhost',
 #        'PORT' : 5432,
 #    }
@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projects',
         'USER' : 'postgres',
-        'PASSWORD' : 'Sofia@2003',
+        'PASSWORD' : 'admin',
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
