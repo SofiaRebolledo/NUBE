@@ -1,4 +1,5 @@
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,11 +164,16 @@
     <main>
         <!-- Rectángulo para el anuncio -->
         <div class="rectangulo">
-            <!-- Nueva imagen seleccionararchivo.png -->
-            <label for="archivo">
-                <img src="{% static 'IMAGENES/Subirarchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
-            </label>
-            <input type="file" id="archivo" name="archivo" accept=".pdf, .doc, .docx, .xlsx" style="display: none;"> <!-- Input oculto -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Nueva imagen seleccionararchivo.png -->
+                <label for="archivo">
+                    <img src="{% static 'IMAGENES/Subirarchivo.png' %}" alt="Seleccionar Archivo" class="seleccionar-archivo">
+                </label>
+                <input type="file" id="archivo" name='archivo' accept=".xlsx" style="display: none;"> <!-- Input oculto -->
+                <button type="submit" name="submit" class="seleccionar-archivo">
+                </button>
+            </form>    
         </div>
         <!-- Aquí va el contenido de la página -->
         <div class="titulo-registro"><strong>soy el adminnn</strong></div>
@@ -213,3 +219,5 @@
     </script>
 </body>
 </html>
+
+{% endblock content %}

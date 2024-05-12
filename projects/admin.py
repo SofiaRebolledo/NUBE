@@ -1,4 +1,10 @@
 from django.contrib import admin
-from projects.models import Usuario_Registrado
+from projects.models import Usuario_Registrado,INTERNET_MOVIL_CARGO_FIJO_INGRE, INTERNET_MOVIL_DEMANDA_ABONADOS, INTERNET_MOVIL_DEMANDA_TRAFICO, INTERNET_MOVIL_CARGO_FIJO_TRAFI,INTERNET_MOVIL_CARGO_FIJO_SUSCR,INTERNET_MOVIL_DEMANDA_INGRESOS
 
 admin.site.register (Usuario_Registrado)
+admin.site.register (INTERNET_MOVIL_CARGO_FIJO_INGRE)
+admin.site.register (INTERNET_MOVIL_DEMANDA_ABONADOS)
+admin.site.register (INTERNET_MOVIL_DEMANDA_TRAFICO)
+admin.site.register (INTERNET_MOVIL_CARGO_FIJO_TRAFI)
+admin.site.register (INTERNET_MOVIL_CARGO_FIJO_SUSCR)
+admin.site.register (INTERNET_MOVIL_DEMANDA_INGRESOS)

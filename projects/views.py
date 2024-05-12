@@ -8,6 +8,9 @@ from . import models
 from projects.models import Usuario_Registrado
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as django_logout
+import pandas as pd
+from projects.models import Usuario_Registrado,INTERNET_MOVIL_CARGO_FIJO_INGRE, INTERNET_MOVIL_DEMANDA_ABONADOS, INTERNET_MOVIL_DEMANDA_TRAFICO, INTERNET_MOVIL_CARGO_FIJO_TRAFI,INTERNET_MOVIL_CARGO_FIJO_SUSCR,INTERNET_MOVIL_DEMANDA_INGRESOS
+from projects import Procesamiento
 
 
 
@@ -37,7 +40,6 @@ def login1(request):
             print("Credenciales incorrectas")
             return redirect("/usuarionoexiste/")
     print("x")
-    logout(request)
     return render(request,'login.html')
 
 
@@ -189,6 +191,15 @@ def basedatos_admin(request):
 
 @login_required(login_url="login")
 def cargararchivos_analista(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['archivo']
+        print(uploaded_file)
+        if uploaded_file.name.endswith('.xlsx'):
+            print("Se sube")
+            Procesamiento.handle_uploaded_file(uploaded_file)
+            return redirect('/cargararchivos_analista/')
+        else:
+            return redirect('/Error/')
     return render(request,'cargararchivos_analista.html')
 
 @login_required(login_url="login")
@@ -210,4 +221,3 @@ def logout(request):
     django_logout(request)
     # Redirigir a la página de inicio
     return redirect('/inicio/')
-
