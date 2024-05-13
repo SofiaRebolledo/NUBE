@@ -121,8 +121,19 @@ def historico(request):
             y.append(dato.INGRESOS)  
         cargo_ingresos = utils.get_plot_cargo_ingresos(x,y)
 
+        for dato in datos_filtrados_cargo_ingresos:
+            x.append(dato.ANNO)
+            #suma_ingresos += dato.INGRESOS
+            y.append(dato.INGRESOS)  
+        cargo_ingresos = utils.get_plot_cargo_ingresos(x,y)
 
-        return render(request,'Grafica.html', {'chart1': cargo_ingresos})
+        for dato in datos_filtrados_cargo_ingresos:
+            x.append(dato.ANNO)
+            y.append(dato.INGRESOS)  
+        cargo_trafico = utils.get_plot_cargo_ingresos(x,y)
+
+
+        return render(request,'Grafica.html', {'chart1': cargo_ingresos,'operador':operador})
     return render(request,'historico.html')
 
 @login_required(login_url="login")

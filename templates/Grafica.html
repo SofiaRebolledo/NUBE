@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    OPERADOR: {{operador|safe}}
     {% if chart1  %}
-        hola1
+        
         <img src = "data:image/png;base64, {{chart1|safe}}"></img>
+
+            
+
     {% endif %}
     {% if chart2  %}
         hola2
