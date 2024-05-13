@@ -36,7 +36,7 @@ class INTERNET_MOVIL_CARGO_FIJO_INGRE(models.Model):
         return f'{self.EMPRESA} - Trimestre {self.TRIMESTRE} del año {self.ANNO}'  
 
 class INTERNET_MOVIL_DEMANDA_ABONADOS(models.Model):
-    #id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     ANNO = models.IntegerField()
     TRIMESTRE = models.IntegerField()
     MES_DEL_TRIMESTRE = models.IntegerField()
@@ -54,7 +54,7 @@ class INTERNET_MOVIL_DEMANDA_ABONADOS(models.Model):
         return f'{self.EMPRESA} - Trimestre {self.TRIMESTRE} del año {self.ANNO}'
     
 class INTERNET_MOVIL_DEMANDA_TRAFICO(models.Model):
-    #id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     ANNO = models.IntegerField()
     TRIMESTRE = models.IntegerField()
     MES_DEL_TRIMESTRE = models.IntegerField()
@@ -68,7 +68,7 @@ class INTERNET_MOVIL_DEMANDA_TRAFICO(models.Model):
         return f'{self.EMPRESA} - Trimestre {self.TRIMESTRE} del año {self.ANNO}'
 
 class INTERNET_MOVIL_CARGO_FIJO_TRAFI(models.Model):
-    #id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     ANNO = models.IntegerField()
     TRIMESTRE = models.IntegerField()
     MES_DEL_TRIMESTRE = models.IntegerField()
@@ -81,7 +81,7 @@ class INTERNET_MOVIL_CARGO_FIJO_TRAFI(models.Model):
 
 
 class INTERNET_MOVIL_CARGO_FIJO_SUSCR(models.Model):
-    #id = models.AutoField(primary_key=True, verbose_name="ID")
+    id = models.AutoField(primary_key=True, verbose_name="ID")
     ANNO = models.IntegerField()
     TRIMESTRE = models.IntegerField()
     MES_DEL_TRIMESTRE = models.IntegerField()
@@ -100,7 +100,7 @@ class INTERNET_MOVIL_CARGO_FIJO_SUSCR(models.Model):
 
 
 class INTERNET_MOVIL_DEMANDA_INGRESOS(models.Model):
-    #id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     ANNO = models.IntegerField()
     TRIMESTRE = models.IntegerField()
     MES_DEL_TRIMESTRE = models.IntegerField()

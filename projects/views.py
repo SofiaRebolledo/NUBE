@@ -14,7 +14,7 @@ from projects import Procesamiento
 
 
 
-def inicio(request):
+def inicio(request): # OK-----------------------
     return render(request, 'Plantilla.html')
 
 def login1(request):
@@ -43,8 +43,7 @@ def login1(request):
     return render(request,'login.html')
 
 
-
-def registro(request):
+def registro(request): # OK -------------------------------------
     if request.method=='POST':
         nombre =  str((request.POST.get('nombre'))).strip(' ')
         apellido = str(request.POST.get('apellido')).strip(' ')
@@ -81,15 +80,17 @@ def registro(request):
     return render(request,'registro.html')
     
 
-def forgot_password(request):
+def forgot_password(request): # FUTURAS VERSIONES --------------------------
     return render(request,'forgot_password.html')
 
 @login_required(login_url="login")
-def inicio_admin(request):
-    return render(request,'inicio_admin.html')
+def inicio_admin(request): # OK --------------------------------------------
+    return render(request,'inicio_admin.html') 
 
 @login_required(login_url="login")
 def historico(request):
+
+
     return render(request,'historico.html')
 
 @login_required(login_url="login")
@@ -101,15 +102,15 @@ def resultadosindices(request):
     return render(request,'resultadosindices.html')
 
 @login_required(login_url="login")
-def roladmin(request):
-    return render(request,'admin.html')
+def roladmin(request): # OK ---------------------
+    return render(request,'admin.html') 
 
 @login_required(login_url="login")
-def analista(request):
-    return render(request,'analista.html')
+def analista(request): # OK ------------------------
+    return render(request,'analista.html') 
 
 @login_required(login_url="login")
-def crearusuario_admin(request):
+def crearusuario_admin(request): # OK --------------------
     
     if request.method == 'POST':
         
@@ -186,11 +187,11 @@ def crearusuario_admin(request):
     return render(request,'crearusuario_admin.html')
 
 @login_required(login_url="login")
-def basedatos_admin(request):
+def basedatos_admin(request): # FUTURAS VERSIONES ----------------------
     return render(request,'basedatos_admin.html')
 
 @login_required(login_url="login")
-def cargararchivos_analista(request):
+def cargararchivos_analista(request): # OK ------------------------
     if request.method == 'POST':
         uploaded_file = request.FILES['archivo']
         print(uploaded_file)
@@ -203,20 +204,20 @@ def cargararchivos_analista(request):
     return render(request,'cargararchivos_analista.html')
 
 @login_required(login_url="login")
-def preprocesamientodatos_analista(request):
+def preprocesamientodatos_analista(request): # FUTURAS VERSIONES -------------
     return render(request,'preprocesamientodatos_analista.html')
 
 @login_required(login_url="login")
-def historicodatos_analista(request):
+def historicodatos_analista(request): # NO SABEMOS QUE SE HARA
     return render(request,'historicodatos_analista.html')
 
-def Error(request):
+def Error(request): # OK ----------------------
     return render(request,'Error.html')
 
-def usuarionoexiste(request):
+def usuarionoexiste(request): # OK -------------------------
     return render(request,'usuarionoexiste.html')
 
-def logout(request):
+def logout(request): #OK ---------------
     # Cerrar sesión del usuario
     django_logout(request)
     # Redirigir a la página de inicio
