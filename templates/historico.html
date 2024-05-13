@@ -193,8 +193,6 @@ nav div {
         width: auto; /* Ancho ajustado automáticamente */
 
     }
-
-
     </style>
 </head>
 <body>
@@ -221,8 +219,9 @@ nav div {
             <label for="start"></label>
             <input class="startdate" type="date" id="start" name="trip-start" min="2020-01-01" />
         </div>
-        <form method = "POST">
-            {% csrf_token %}
+        
+        <form action="" method="POST"> <!-- Evitar el envío automático del formulario --> 
+                {% csrf_token %}
             <!-- Lista desplegable para seleccionar entre prepago y postpago -->
             <div class="dropdown-container-prepago">
                 <label for="tipo-plan">Tipo de Plan:</label>
@@ -236,18 +235,28 @@ nav div {
             <div class="dropdown-container-operador">
                 <label for="operador">Operador:</label>
                 <select id="operador" name="operador">
-                    <option value="claro">Claro</option>
-                    <option value="movistar">Movistar</option>
-                    <option value="etb">ETB</option>
-                    <option value="tigo">Tigo</option>
+                    <option value="ALMACENES EXITO INVERSIONES S.A.S.">ALMACENES EXITO INVERSIONES S.A.S.</option>
+                    <option value="SETROC MOBILE GROUP SAS">SETROC MOBILE GROUP SAS</option>
+                    <option value="UNE EPM TELECOMUNICACIONES S.A.">UNE EPM TELECOMUNICACIONES S.A.</option>
+                    <option value="COLOMBIA MOVIL S.A. E.S.P.">COLOMBIA MOVIL S.A. E.S.P.</option>
+                    <option value="COLOMBIA TELECOMUNICACIONES S.A. ESP">COLOMBIA TELECOMUNICACIONES S.A. ESP</option>
+                    <option value="UNE EPM TELECOMUNICACIONES S.A. E.S.P. - UNE EPM TELCO S.A.">UNE EPM TELECOMUNICACIONES S.A. E.S.P. - UNE EPM TELCO S.A.</option>
+                    <option value="COMUNICACION CELULAR S A COMCEL S A">COMUNICACION CELULAR S A COMCEL S A</option>
+                    <option value="PARTNERS TELECOM COLOMBIA SAS">PARTNERS TELECOM COLOMBIA SAS</option>
+                    <option value="COLOMBIA TELECOMUNICACIONES S.A. E.S.P.">COLOMBIA TELECOMUNICACIONES S.A. E.S.P.</option>
+                    <option value="COLOMBIA MOVIL  S.A ESP">COLOMBIA MOVIL  S.A ESP</option>
+                    <option value="AVANTEL S.A.S">AVANTEL S.A.S</option>
+                    <option value="AVANTEL S.A.S.">AVANTEL S.A.S.</option>
+                    <option value="EMPRESA DE TELECOMUNICACIONES DE BOGOTÁ S.A. ESP.">EMPRESA DE TELECOMUNICACIONES DE BOGOTÁ S.A. ESP.</option>
+                    <option value="EMPRESA DE TELECOMUNICACIONES DE BOGOTA S.A. ESP">EMPRESA DE TELECOMUNICACIONES DE BOGOTA S.A. ESP</option>
+                    <option value="VIRGIN MOBILE COLOMBIA S.A.S.">VIRGIN MOBILE COLOMBIA S.A.S.</option>
                 </select>
             </div>
+            <!-- Botón de descarga -->
             <button type="submit" name="submit" class="boton-descargar boton-descargar-sm">Descargar
             </button>
         </form>
-        <!-- Botón de descarga -->
         <!--<img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">-->
-
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">

@@ -21,4 +21,5 @@ urlpatterns = [
     path('Error/', views.Error, name="Error"),
     path('usuarionoexiste/', views.usuarionoexiste, name="usuarionoexiste"),
     path('logout/', views.logout, name='logout'),
+    path('grafica/', views.grafica, name='grafica'),
 ]

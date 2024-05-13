@@ -150,5 +150,4 @@ def ingresar_INTERNET_MOVIL_DEMANDA_INGRESOS(df):
             TERMINAL=row['TERMINAL'],
             INGRESOS=int(row['INGRESOS'])
         )
-    INTERNET_MOVIL_CARGO_FIJO_INGRE.validate_unique
     print("Completado")
