@@ -221,28 +221,32 @@ nav div {
             <label for="start"></label>
             <input class="startdate" type="date" id="start" name="trip-start" min="2020-01-01" />
         </div>
+        <form method = "POST">
+            {% csrf_token %}
+            <!-- Lista desplegable para seleccionar entre prepago y postpago -->
+            <div class="dropdown-container-prepago">
+                <label for="tipo-plan">Tipo de Plan:</label>
+                <select id="tipo-plan" name="tipo-plan">
+                    <option value="prepago">Prepago</option>
+                    <option value="postpago">Postpago</option>
+                </select>
+            </div>
 
-        <!-- Lista desplegable para seleccionar entre prepago y postpago -->
-        <div class="dropdown-container-prepago">
-            <label for="tipo-plan">Tipo de Plan:</label>
-            <select id="tipo-plan" name="tipo-plan">
-                <option value="prepago">Prepago</option>
-                <option value="postpago">Postpago</option>
-            </select>
-        </div>
-
-        <!-- Lista desplegable para seleccionar entre Claro, Movistar, ETB y Tigo -->
-        <div class="dropdown-container-operador">
-            <label for="operador">Operador:</label>
-            <select id="operador" name="operador">
-                <option value="claro">Claro</option>
-                <option value="movistar">Movistar</option>
-                <option value="etb">ETB</option>
-                <option value="tigo">Tigo</option>
-            </select>
-        </div>
+            <!-- Lista desplegable para seleccionar entre Claro, Movistar, ETB y Tigo -->
+            <div class="dropdown-container-operador">
+                <label for="operador">Operador:</label>
+                <select id="operador" name="operador">
+                    <option value="claro">Claro</option>
+                    <option value="movistar">Movistar</option>
+                    <option value="etb">ETB</option>
+                    <option value="tigo">Tigo</option>
+                </select>
+            </div>
+            <button type="submit" name="submit" class="boton-descargar boton-descargar-sm">Descargar
+            </button>
+        </form>
         <!-- Botón de descarga -->
-        <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">
+        <!--<img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">-->
 
     </main>
     <footer>
