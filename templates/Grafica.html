@@ -2,28 +2,16 @@
 
 {% block content %}
     OPERADOR: {{operador|safe}}
+    <hr></hr>
     {% if chart1  %}
-        
         <img src = "data:image/png;base64, {{chart1|safe}}"></img>
     {% endif %}
     {% if chart2  %}
-    OPERADOR: {{operador|safe}}
+    <hr></hr>
         <img src = "data:image/png;base64, {{chart2|safe}}"></img>
     {% endif %}
     {% if chart3  %}
-    OPERADOR: {{operador|safe}}
+    <hr></hr>
         <img src = "data:image/png;base64, {{chart3|safe}}"></img>
-    {% endif %}
-    {% if chart4  %}
-    OPERADOR: {{operador|safe}}
-        <img src = "data:image/png;base64, {{chart4|safe}}"></img>
-    {% endif %}
-    {% if chart5  %}
-    OPERADOR: {{operador|safe}}
-        <img src = "data:image/png;base64, {{chart5|safe}}"></img>
-    {% endif %}
-    {% if chart6  %}
-    OPERADOR: {{operador|safe}}
-        <img src = "data:image/png;base64, {{chart6|safe}}"></img>
     {% endif %}
 {% endblock content %}

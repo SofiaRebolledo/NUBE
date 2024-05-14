@@ -11,7 +11,7 @@ from django.contrib.auth import logout as django_logout
 import pandas as pd
 from projects.models import INTERNET_MOVIL_CARGO_FIJO_INGRE, INTERNET_MOVIL_DEMANDA_ABONADOS, INTERNET_MOVIL_DEMANDA_TRAFICO, INTERNET_MOVIL_CARGO_FIJO_TRAFI,INTERNET_MOVIL_CARGO_FIJO_SUSCR,INTERNET_MOVIL_DEMANDA_INGRESOS
 from projects import Procesamiento,utils
-
+import projects.csv11
 
 def grafica(request):
     return render(request, 'Grafica.html')
@@ -43,8 +43,6 @@ def login1(request):
             return redirect("/usuarionoexiste/")
     print("x")
     return render(request,'login.html')
-
-
 
 def registro(request):
     if request.method=='POST':
@@ -81,7 +79,6 @@ def registro(request):
             user2.save()
             return redirect("/login/")
     return render(request,'registro.html')
-    
 
 def forgot_password(request):
     return render(request,'forgot_password.html')
@@ -92,48 +89,29 @@ def inicio_admin(request):
 
 @login_required(login_url="login")
 def historico(request):
-    cargo_ingresos = INTERNET_MOVIL_CARGO_FIJO_INGRE.objects.all()
-    cargo_trafico = INTERNET_MOVIL_CARGO_FIJO_TRAFI.objects.all()
-    cargo_suscrito = INTERNET_MOVIL_CARGO_FIJO_SUSCR.objects.all()
-    demanda_ingresos = INTERNET_MOVIL_DEMANDA_INGRESOS.objects.all()
-    demanda_trafico= INTERNET_MOVIL_DEMANDA_TRAFICO.objects.all()
-    demanda_abonados = INTERNET_MOVIL_DEMANDA_ABONADOS.objects.all()
+    #cargo_ingresos = INTERNET_MOVIL_CARGO_FIJO_INGRE.objects.all()
+    #cargo_trafico = INTERNET_MOVIL_CARGO_FIJO_TRAFI.objects.all()
+    #cargo_suscrito = INTERNET_MOVIL_CARGO_FIJO_SUSCR.objects.all()
+    #demanda_ingresos = INTERNET_MOVIL_DEMANDA_INGRESOS.objects.all()
+    #demanda_trafico= INTERNET_MOVIL_DEMANDA_TRAFICO.objects.all()
+    #demanda_abonados = INTERNET_MOVIL_DEMANDA_ABONADOS.objects.all()
 
     if request.method == "POST":
+
         tipo_plan = request.POST.get('tipo-plan')
         operador = request.POST.get('operador')
-        x = []
-        y = []
-        suma_ingresos = 0
-        #Grafica de cargoIngresos
-
-        datos_filtrados_cargo_ingresos = cargo_ingresos.filter(EMPRESA=operador)
-        datos_filtrados_cargo_trafico = cargo_trafico.filter(EMPRESA=operador)
-        datos_filtrados_cargo_suscrito = cargo_suscrito.filter(EMPRESA=operador)
-        datos_filtrados_demanda_ingresos = demanda_ingresos.filter(EMPRESA=operador)
-        datos_filtrados_demanda_trafico = demanda_trafico.filter(EMPRESA=operador)
-        datos_filtrados_demanda_abonados = demanda_abonados.filter(EMPRESA=operador)
-        #print(datos_filtrados)
-
-        for dato in datos_filtrados_cargo_ingresos:
-            x.append(dato.ANNO)
-            #suma_ingresos += dato.INGRESOS
-            y.append(dato.INGRESOS)  
-        cargo_ingresos = utils.get_plot_cargo_ingresos(x,y)
-
-        for dato in datos_filtrados_cargo_ingresos:
-            x.append(dato.ANNO)
-            #suma_ingresos += dato.INGRESOS
-            y.append(dato.INGRESOS)  
-        cargo_ingresos = utils.get_plot_cargo_ingresos(x,y)
-
-        for dato in datos_filtrados_cargo_ingresos:
-            x.append(dato.ANNO)
-            y.append(dato.INGRESOS)  
-        cargo_trafico = utils.get_plot_cargo_ingresos(x,y)
+        print(operador)
+        new_df_abrir_excel_tabla_accesos = projects.csv11.abrir_excel_tabla_accesos()
+        new_df_abrir_excel_tabla_trafico = projects.csv11.abrir_excel_tabla_trafico()
+        new_df_abrir_excel_tabla_ingresos = projects.csv11.abrir_excel_tabla_ingresos()
 
 
-        return render(request,'Grafica.html', {'chart1': cargo_ingresos,'operador':operador})
+        cargo_accesos = utils.get_plot_cargo_abonados(new_df_abrir_excel_tabla_accesos,operador)
+        cargo_trafico = utils.get_plot_cargo_trafico(new_df_abrir_excel_tabla_trafico,operador)
+        cargo_ingresos = utils.get_plot_cargo_ingresos(new_df_abrir_excel_tabla_ingresos,operador)
+
+
+        return render(request,'Grafica.html', {'chart1': cargo_accesos,'chart2':cargo_trafico,'chart3':cargo_ingresos,'operador':operador})
     return render(request,'historico.html')
 
 @login_required(login_url="login")
