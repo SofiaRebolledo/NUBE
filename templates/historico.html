@@ -219,22 +219,7 @@ nav div {
     <main>
         <div class="titulo-registro"><strong>Bienvenido a Historico</strong></div>
         <div id="imagenes-container" style="position: relative; margin-top: 140px; margin-left: -400px;">
-            <img src="{% static 'IMAGENES/COLOMBIA_MOVIL.png' %}" alt="Colombia Móvil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/COLOMBIA_TELECOMUNICACIONES.png' %}" alt="Colombia Telecomunicaciones" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/COMUNICACION_CELULAR_COMCEL.png' %}" alt="Comunicacion Celular Comcel" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA.png' %}" alt="Empresa de Telecomunicaciones de Bogota" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/UNE_EPM.png' %}" alt="UNE EPM" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/AVANTEL.png' %}" alt="Avantel" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/ALMACENES_EXITO.png' %}" alt="Almacenes Exito" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/VIRGIN_MOBILE.png' %}" alt="Virgin Mobile" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/PARTNERS_TELECOM.png' %}" alt="Partners Telecom" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/SETROC_MOBILE.png' %}" alt="Setroc Mobile" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/UFF_MOVIL.png' %}" alt="UFF Movil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/CELLVOZ_COLOMBIA.png' %}" alt="Cellvoz Colombia" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/LOGISTICA_FLASH.png' %}" alt="Logistica Flash" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/LOV_TELECOMUNICACIONES.png' %}" alt="LOV Telecomunicaciones" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-    <img src="{% static 'IMAGENES/SUMA_MOVIL.png' %}" alt="Suma Movil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
-<!-- Agrega las demás imágenes controlables aquí -->
+            <!-- Agrega las demás imágenes controlables aquí -->
 
             <!-- Agrega las otras imágenes aquí con el mismo estilo -->
         </div>
@@ -312,7 +297,7 @@ nav div {
     });
 
     // Mostrar solo la imagen de "COLOMBIA_MOVIL" al cargar la página
-    var colombiaMovilImg = document.querySelector('img[src="{% static 'IMAGENES/COLOMBIA_MOVIL.png' %}"]');
+    var colombiaMovilImg = document.querySelector("img[src='{% static 'IMAGENES/COLOMBIA_MOVIL.png' %}']");
     colombiaMovilImg.style.opacity = '1';
 
     // Agregar un evento onchange a la lista desplegable
