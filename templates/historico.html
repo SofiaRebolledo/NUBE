@@ -112,6 +112,7 @@ nav div {
             margin-bottom: 10px;
             margin-top: 70px; /* Ajusta el margen superior según sea necesario */
             margin-left: 0px;
+            opacity: 0;
         }
 
         .calendar-container {
@@ -127,6 +128,7 @@ nav div {
             border: 1px solid #F32E61; /* Borde rosa */
             background-color: #FEE9EC; /* Fondo rosa claro */
             width: 200px; /* Ancho del calendario */
+            opacity: 0;
         }
 
         /* Estilos para la primera lista desplegable */
@@ -140,6 +142,7 @@ nav div {
         .dropdown-container-prepago label {
             display: block;
             margin-bottom: 5px;
+            opacity: 0;
         }
 
         .dropdown-container-prepago select {
@@ -149,12 +152,13 @@ nav div {
             border: 1px solid #F32E61;
             background-color: #FEE9EC; /* Fondo rosa claro */
             font-size: 16px;
+            opacity: 0;
         }
 
         /* Estilos para la segunda lista desplegable */
         .dropdown-container-operador {
             position: absolute;
-            top: 220px; /* Espacio entre el título y la lista desplegable */
+            top: 120px; /* Espacio entre el título y la lista desplegable */
             left: 20px; /* Ajusta el margen izquierdo */
             width: 200px; /* Ancho de la lista desplegable */
         }
@@ -214,6 +218,26 @@ nav div {
     </header>
     <main>
         <div class="titulo-registro"><strong>Bienvenido a Historico</strong></div>
+        <div id="imagenes-container" style="position: relative; margin-top: 140px; margin-left: -400px;">
+            <img src="{% static 'IMAGENES/COLOMBIA_MOVIL.png' %}" alt="Colombia Móvil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/COLOMBIA_TELECOMUNICACIONES.png' %}" alt="Colombia Telecomunicaciones" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/COMUNICACION_CELULAR_COMCEL.png' %}" alt="Comunicacion Celular Comcel" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/EMPRESA_DE_TELECOMUNICACIONES_DE_BOGOTA.png' %}" alt="Empresa de Telecomunicaciones de Bogota" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/UNE_EPM.png' %}" alt="UNE EPM" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/AVANTEL.png' %}" alt="Avantel" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/ALMACENES_EXITO.png' %}" alt="Almacenes Exito" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/VIRGIN_MOBILE.png' %}" alt="Virgin Mobile" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/PARTNERS_TELECOM.png' %}" alt="Partners Telecom" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/SETROC_MOBILE.png' %}" alt="Setroc Mobile" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/UFF_MOVIL.png' %}" alt="UFF Movil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/CELLVOZ_COLOMBIA.png' %}" alt="Cellvoz Colombia" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/LOGISTICA_FLASH.png' %}" alt="Logistica Flash" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/LOV_TELECOMUNICACIONES.png' %}" alt="LOV Telecomunicaciones" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+    <img src="{% static 'IMAGENES/SUMA_MOVIL.png' %}" alt="Suma Movil" style="position: absolute; top: 0; left: 0; max-width: 400px; height: auto;" class="imagen-controlable">
+<!-- Agrega las demás imágenes controlables aquí -->
+
+            <!-- Agrega las otras imágenes aquí con el mismo estilo -->
+        </div>
         <!-- Calendario -->
         <div class="calendar-container">
             <label for="start"></label>
@@ -267,8 +291,9 @@ nav div {
                 </select>
             </div>
             <!-- Botón de descarga -->
-            <button type="submit" name="submit" class="boton-descargar boton-descargar-sm">Descargar
-            </button>
+            <!-- Botón de descarga -->
+<img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm" onclick="descargar()">
+
         </form>
         <!--<img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">-->
     </main>
@@ -277,6 +302,43 @@ nav div {
         <img src="{% static 'IMAGENES/logout.png' %}" alt="Logout" class="logout-button" onclick="logout()">
     </footer>
     <script>
+        var operadorSelect = document.getElementById('operador');
+    // Obtener referencias a todas las imágenes controlables
+    var imagenes = document.querySelectorAll('.imagen-controlable');
+
+    // Inicialmente, establecer la opacidad de todas las imágenes controlables en 0
+    imagenes.forEach(function(img) {
+        img.style.opacity = '0';
+    });
+
+    // Mostrar solo la imagen de "COLOMBIA_MOVIL" al cargar la página
+    var colombiaMovilImg = document.querySelector('img[src="{% static 'IMAGENES/COLOMBIA_MOVIL.png' %}"]');
+    colombiaMovilImg.style.opacity = '1';
+
+    // Agregar un evento onchange a la lista desplegable
+    operadorSelect.addEventListener('change', function() {
+        // Obtener el valor seleccionado
+        var selectedOption = operadorSelect.value;
+        // Iterar sobre todas las imágenes controlables
+        imagenes.forEach(function(img) {
+            // Verificar si el nombre de la imagen contiene la opción seleccionada
+            if (img.src.includes(selectedOption)) {
+                // Mostrar la imagen
+                img.style.opacity = '1';
+            } else {
+                // Ocultar la imagen cambiando la opacidad a 0
+                img.style.opacity = '0';
+            }
+        });
+    });
+
+        
+        function descargar() {
+    // Obtener el formulario
+    var form = document.querySelector('form');
+    // Enviar el formulario
+    form.submit();
+}
        function logout() {
         // Hacer una solicitud AJAX para cerrar la sesión del usuario
         var xhr = new XMLHttpRequest();
