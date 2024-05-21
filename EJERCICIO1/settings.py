@@ -87,23 +87,23 @@ WSGI_APPLICATION = 'EJERCICIO1.wsgi.application'
 #    }
 #}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'projects',
-       'USER' : 'postgres',
-        'PASSWORD' : 'admin123',
-        'HOST' : 'crc.cvrnnf3awboe.us-east-1.rds.amazonaws.com',
-        'PORT' : 5432,
-    }
-}
-
 #DATABASES = {
-#   'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'projects',
+#       'USER' : 'postgres',
+#        'PASSWORD' : 'admin123',
+#        'HOST' : 'crc.cvrnnf3awboe.us-east-1.rds.amazonaws.com',
+#        'PORT' : 5432,
 #    }
 #}
+
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
