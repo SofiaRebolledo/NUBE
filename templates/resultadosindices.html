@@ -208,13 +208,19 @@
         </div>
 
         <!-- Botón de descarga -->
-        <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm">
+        <form action="" method="POST"> 
+            {% csrf_token %}
+            <img src="{% static 'IMAGENES/botondescargar.png' %}" alt="Descargar" class="boton-descargar boton-descargar-sm" onclick="descargar()">
+        </form>
+        
 
     </main>
     <footer>
         <img src="{% static 'IMAGENES/gov2.png' %}" alt="GOV2" class="logo-gov2">
         <img src="{% static 'IMAGENES/logout.png' %}" alt="Logout" class="logout-button" onclick="logout()">
     </footer>
+
+    
     <script>
         function logout() {
         // Hacer una solicitud AJAX para cerrar la sesión del usuario
@@ -275,6 +281,12 @@
     
         function redirectToLogin() {
             window.location.href = '/login/';
+        }
+        function descargar() {
+            // Obtener el formulario
+            var form = document.querySelector('form');
+            // Enviar el formulario
+            form.submit();
         }
     </script>
     

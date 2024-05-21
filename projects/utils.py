@@ -56,3 +56,42 @@ def get_plot_cargo_ingresos(df,operador):
     plt.show()
     graph = get_graph()
     return graph
+
+def get_plot_stenback_Ingresos(df):
+    plt.switch_backend('AGG')
+    Stenbacka_incomes = pd.DataFrame(df)
+    ax=Stenbacka_incomes.plot.bar("MES", "Stenbacka")
+    ax.margins(x=0, y=0)
+    ax.xaxis.set_ticks([6, 18, 30, 42, 54, 66, 78, 90, 102, 114, 126])
+    ax.xaxis.set_ticklabels(['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'])
+    plt.ylabel('Stenbacka incomes')
+    plt.xlabel('Years')
+    plt.show()
+    graph = get_graph()
+    return graph
+
+def get_plot_stenback_abonados(df):
+    plt.switch_backend('AGG')
+    Stenbacka_incomes = pd.DataFrame(df)
+    ax=Stenbacka_incomes.plot.bar("MES", "Stenbacka")
+    ax.margins(x=0, y=0)
+    ax.xaxis.set_ticks([6, 18, 30, 42, 54, 66, 78, 90, 102, 114, 126])
+    ax.xaxis.set_ticklabels(['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'])
+    plt.ylabel('Stenbacka accesses')
+    plt.xlabel('Years')
+    plt.show()
+    graph = get_graph()
+    return graph
+
+def get_plot_stenback_trafico(df):
+    plt.switch_backend('AGG')
+    Stenbacka_traffic = pd.DataFrame(df)
+    ax=Stenbacka_traffic.plot.bar("MES", "Stenbacka")
+    ax.margins(x=0, y=0)
+    ax.xaxis.set_ticks([6, 18, 30, 42, 54, 66, 78, 90, 102, 114, 126])
+    ax.xaxis.set_ticklabels(['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'])
+    plt.ylabel('Stenbacka Traffic')
+    plt.xlabel('Years')
+    plt.show()
+    graph = get_graph()
+    return graph

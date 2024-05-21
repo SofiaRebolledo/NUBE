@@ -120,6 +120,16 @@ def tendencia(request):
 
 @login_required(login_url="login")
 def resultadosindices(request):
+    if request.method == "POST":
+        texto = "STENBACK"
+        df_Stenback_ingresos = projects.csv11.abrir_csv_stenback_ingresos()
+        df_Stenback_abonados = projects.csv11.abrir_csv_stenback_Abonados()
+        df_Stenback_trafico = projects.csv11.abrir_csv_stenback_trafico()
+        
+        stenback_ingresos = utils.get_plot_stenback_Ingresos(df_Stenback_ingresos)
+        stenback_abonados = utils.get_plot_stenback_abonados(df_Stenback_abonados)
+        stenback_trafico = utils.get_plot_stenback_trafico(df_Stenback_trafico)
+        return render(request,'Grafica.html', {'chart1': stenback_ingresos,'chart2':stenback_abonados,'chart3':stenback_trafico,'stenback':texto})
     return render(request,'resultadosindices.html')
 
 @login_required(login_url="login")
